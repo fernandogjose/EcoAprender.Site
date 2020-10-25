@@ -1,0 +1,11 @@
+﻿#lista-usuario {
+    display: block;
+}
+
+#form-cadastro {
+    display: none;
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+}

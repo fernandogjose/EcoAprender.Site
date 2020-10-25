@@ -1,0 +1,55 @@
+﻿.exibir-comunicado{
+    cursor: pointer;
+}
+
+.header-portal-do-aluno {
+    height: 99px;
+    position: relative;
+    margin-top: 1px;
+    background-color: #428BCA;
+}
+
+.portal-do-aluno {
+    margin-top: 50px;
+}
+
+    .portal-do-aluno .header {
+        background-color: #428bca;
+        min-height: 124px;
+    }
+
+    .portal-do-aluno .foto-capa {
+        margin: 0 auto;
+    }
+
+    .portal-do-aluno h1 {
+        font-size: 16px;
+        color: #fff;
+        padding-top: 10px;
+    }
+
+    .portal-do-aluno h2 {
+        font-size: 15px;
+        color: #fff;
+        padding-top: 5px;
+    }
+
+    .portal-do-aluno .cameras-online a {
+        color: #428bca;
+        text-decoration: none;
+    }
+
+    .portal-do-aluno .cameras-online p {
+        text-align: justify;
+    }
+
+    .portal-do-aluno .cardapio {
+        margin-bottom: 40px;
+    }
+
+.col-linha-vertical {
+    border-right: 1px dashed #BDBBBB;
+    min-height: 800px;
+    right: 43px;
+    margin-top: -49px;
+}

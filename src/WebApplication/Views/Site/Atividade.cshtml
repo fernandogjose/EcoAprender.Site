@@ -1,0 +1,239 @@
+﻿@model Domain.Entities.Atividade
+
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.MetaDescription = Model.MetaDescription;
+}
+
+@section Head{
+    <meta name="twitter:card" content="@Model.MetaTitle" />
+    <meta name="twitter:site" content="@string.Format("@EcoAprender")" />
+    <meta name="twitter:title" content="@Model.MetaDescription" />
+    <meta name="twitter:description" content="@Model.Titulo" />
+    <meta name="twitter:image" content="http://www.ecoaprender.com.br/img/atividades/@Model.FotoCapa" />
+}
+
+<section id="atividade">
+    <header>
+        @{
+            var src = string.Format("/img/atividades/{0}/{1}", Model.Id, Model.FotoCapa);
+        }
+
+        <img src="@src" class="img-responsive img-principal img-capa" alt="@Model.Titulo" />
+    </header>
+
+    <section id="navegacao-header" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a href="/" rel="nofollow" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/atividades" title="Atividades">Atividades</a><i class="fa fa-angle-right"></i></li>
+                <li>
+                    <a href="/atividades/@Model.GrupoRelacionamento.Id" title="@Model.GrupoRelacionamento.Descricao">@Model.GrupoRelacionamento.Descricao.ToString()</a><i class="fa fa-angle-right"></i>
+                </li>
+                <li><a href="/atividade/@Model.Link" title="@Model.Titulo">@Model.Titulo</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <article id="header" class="container pagina-interna" itemscope itemtype="http://schema.org/BlogPosting">
+        <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé, @Model.MetaTitle" />
+        <meta itemprop="author" content="Fernando José" />
+        <meta itemprop="dateModified" content="@Model.DataAlteracao" />
+
+        <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <span itemprop="name">
+                Escola de Educação Infantil e Berçário Eco Aprender
+            </span>
+            <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+            </div>
+        </div>
+
+        <p class="atividades">
+            <label itemprop="datePublished">@Model.Data.ToString("dd/MM/yyyy")</label>
+        </p>
+
+        @if (Request.Browser.IsMobileDevice)
+        {
+            <h2 class="texto-escuro" itemprop="name headline mainEntityOfPage">@Model.Titulo</h2>
+        }
+        else
+        {
+            <h2 class="texto-escuro" itemprop="name headline mainEntityOfPage">@Model.Titulo</h2>
+        }
+
+        <div class="clearBoth">
+            <input type="hidden" value="@Session["UsuarioId"]" id="usuarioId" />
+
+            @{
+                if (Model.Id > 55)
+                {
+                    Model.Completa = Model.Completa.Replace(".", "<br /><br />");
+                }
+            }
+            <div itemprop="description" id="atividadeCompleta">
+                @Html.Raw(Model.Completa)
+
+                @if (Model.Id > 55 && Session["UsuarioId"] != null)
+                {
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="550">
+                        <meta itemprop="height" content="400">
+
+                        @{
+                            var path = Server.MapPath(string.Format(@"\img\atividades\{0}\", Model.Id));
+                            if (Directory.Exists(path))
+                            {
+                                foreach (var foto in Directory.GetFiles(path))
+                                {
+                                    var srcFotos = string.Format("/img/atividades/{0}/{1}", Model.Id, Path.GetFileName(foto));
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <img src="@srcFotos" alt="@Model.Titulo" title="@Model.Titulo" class="img-responsive" itemprop="url">
+                                    </div>
+                                }
+                            }
+                        }
+                    </figure>
+                            }
+            </div>
+        </div>
+
+        @if (Session["UsuarioId"] == null)
+        {
+        <!-- login -->
+            <div class="alert alert-danger">
+                <strong>Obs:</strong> Com o intuito de preservar a imagem dos nossos alunos é necessário estar logado para ter acesso as fotos.
+            </div>
+
+            <div class="row margin-top-30" id="section-login">
+                <div class="col-xs-12 col-md-6">
+                    <form class="form-horizontal" id="form" name="form" method="get" action="@Url.Action("Login", "Portal-Do-Aluno")">
+                        <div class="form-group">
+                            <label for="Login" class="col-xs-2 control-label">Login</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" name="login" id="login" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Senha" class="col-xs-2 control-label">Senha</label>
+                            <div class="col-xs-10">
+                                <input type="password" class="form-control" name="senha" id="senha" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <button type="submit" class="btn btn-primary btn-salvar" id="entrar">Entrar</button>
+                            </div>
+                        </div>
+
+                        <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide" id="mensagemDeErro">
+                            Usuário ou Senha não encontrado!
+                        </p>
+                    </form>
+                </div>
+            </div>
+        }
+    </article>
+
+    <section id="redes-sociais" class="redes-sociais-compartilhar">
+        <section id="share" class="container">
+            <div class="col-xs-12 anuncio-compartilhe">
+                <div class="col-xs-12 compartilhe-titulo">
+                    <i class="fa fa-angle-down"></i>
+                    <span>COMPARTILHE ESTA ATIVIDADE COM SEUS AMIGOS</span>
+                </div>
+
+                <div class="col-xs-12 icones">
+                    <i class="spr-detalhes-anuncio ico-facebook"></i>
+
+                    <a href="#" onclick="twitter = window.open('https://twitter.com/share', 'Twitter', width = 600, height = 150); return false;">
+                        <i class="spr-detalhes-anuncio ico-twitter"></i>
+                    </a>
+                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+                    <a href="#" onclick="googlePlus = window.open('https://plus.google.com/share?url=@Request.Url', 'GooglePlus', width = 600, height = 150); return false;">
+                        <i class="spr-detalhes-anuncio ico-gplus"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="comentarios" class="container margin-top-46">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            this.page.url = "@Request.Url";
+                            this.page.identifier = "@Model.Id";
+                        };
+
+                        (function () {
+                            var d = document, s = d.createElement('script');
+                            s.src = '//ecoaprender.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    <script id="dsq-count-scr" src="//carspremium.disqus.com/count.js" async></script>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="navegacao-footer" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a href="/" rel="nofollow" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/atividades" title="Atividades">Atividades</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/atividades/@Model.GrupoRelacionamento.Id" title="@Model.GrupoRelacionamento.Descricao">@Model.GrupoRelacionamento.Descricao.ToString()</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/atividade/@Model.Link" title="@Model.Titulo">@Model.Titulo</a></li>
+            </ul>
+        </nav>
+    </section>
+</section>
+
+<input type="hidden" id="facebookName" value="@Model.Titulo" />
+<input type="hidden" id="facebookLink" value="@Request.Url" />
+<input type="hidden" id="facebookPicture" value="http://www.ecoaprender.com.br/img/atividades/@Model.FotoCapa" />
+<input type="hidden" id="facebookCaption" value="@Model.MetaTitle" />
+<input type="hidden" id="facebookDescription" value="Atividade @Model.Titulo do Grupo @Model.Grupo da Escola Eco Aprender" />
+<input type="hidden" id="facebookMessage" value="@Model.MetaDescription" />
+
+<div id="fb-root"></div>
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    @Styles.Render("~/Content/fotos")
+    <script src="~/Scripts/jquery.lightbox-0.5.min.js"></script>
+
+    <script>
+                        $(function () {
+                            $('#thumbnails a').lightBox();
+                        });
+
+                        window.fbAsyncInit = function () {
+                            FB.init({
+                                appId: '998622546846492',
+                                xfbml: true,
+                                version: 'v2.5',
+                                status: true,
+                                cookie: true
+                            });
+                        };
+
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) { return; }
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/pt_BR/sdk.js";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    @Scripts.Render("~/bundles/atividade")
+}

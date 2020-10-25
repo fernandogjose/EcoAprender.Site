@@ -1,0 +1,50 @@
+﻿#servicos {
+    margin-bottom: 50px;
+}
+
+    #servicos .container {
+        text-align: center;
+    }
+
+        #servicos .container .servico {
+            padding: 2em;
+            margin: 0;
+            min-height: 300px;
+        }
+
+            #servicos .container .servico.bercario {
+                background: #1a95be;
+            }
+
+            #servicos .container .servico.educacao-infantil {
+                background: #f6b939;
+            }
+
+            #servicos .container .servico.projeto-bilingue {
+                background: #ff7a85;
+            }
+
+            #servicos .container .servico h2 {
+                font-size: 1.3em;
+                color: #fff;
+                font-weight: 400;
+                text-transform: uppercase;
+                font-family: 'Fugaz One', cursive;
+            }
+
+            #servicos .container .servico p {
+                font-size: 0.9em;
+                color: #fff;
+                line-height: 1.7em;
+                margin: 0.5em 0;
+            }
+
+                #servicos .container .servico p a {
+                    color: #000;
+                    font-weight: 800;
+                }
+
+                #servicos .container .servico p a:hover {
+                    color: #1a1a1a;
+                    font-weight: 800;
+                }

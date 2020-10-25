@@ -1,0 +1,101 @@
+﻿.home-frase {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px;
+    margin-top: 30px;
+}
+
+    .home-frase h1 {
+        font-size: 25px;
+        color: #000;
+    }
+
+    .home-frase a {
+        background-color: #428bca;
+        border-color: #025FB1;
+        color: #fff;
+    }
+
+        .home-frase a:hover {
+            background-color: #428bca;
+            border-color: #025FB1;
+            color: #fff;
+        }
+
+.pagina-interna-carregando {
+    min-height: 400px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 100px;
+}
+
+.pagina-interna {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 500px;
+}
+
+    .pagina-interna .atividade {
+        font-size: 16px;
+    }
+
+    .pagina-interna .grupo {
+        font-size: 16px;
+    }
+
+    .pagina-interna img {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .pagina-interna .texto-escuro {
+        color: #333;
+        text-align: justify;
+        font-size: 15px;
+    }
+
+    .pagina-interna h3 {
+        font-size: 15px;
+        margin-top: 0;
+    }
+
+        .pagina-interna h3.atividades {
+            height: 50px;
+        }
+
+        .pagina-interna h3 a {
+            color: #333;
+            width: 100%;
+        }
+
+    .pagina-interna h1 {
+        color: #000;
+        font-size: 16px;
+        min-height: 40px;
+    }
+
+    .pagina-interna h2 {
+        color: #000;
+        font-size: 16px;
+        min-height: 40px;
+    }
+
+    .pagina-interna a:hover {
+        text-decoration: none;
+    }
+
+/* mobile */
+@media screen and (max-width:600px) {
+    .home-frase {
+        margin-top: 10px;
+    }
+
+        .home-frase h1 {
+            font-size: 14px;
+        }
+
+        .home-frase a {
+            font-size: 10px;
+        }
+}

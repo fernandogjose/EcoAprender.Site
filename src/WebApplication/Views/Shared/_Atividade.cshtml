@@ -1,0 +1,99 @@
+﻿@{
+    var grupo = "";
+}
+
+<section id="atividades-recentes" class="atividades-recentes" itemscope itemtype="http://schema.org/Blog">
+    <div class="linha">
+        <div class="container">
+            <div class="row text-center">
+                <article class="col-md-4 item item-mobile item-mobile-sem-borda-direita">
+                    <header>
+                        <h2><strong itemprop="name">@ViewBag.Atividades[0].Titulo</strong></h2>
+                    </header>
+                    <h3 class="col-100">
+                        <a href="/atividade/@ViewBag.Atividades[0].Link" title="@ViewBag.Atividades[0].Titulo" itemprop="url description">
+                            @ViewBag.Atividades[0].Resumo
+                        </a>
+                    </h3>
+                    @{
+                        grupo = string.Format("grupo{0}", ViewBag.Atividades[0].Grupo);
+                    }
+                    <a href="/atividades/@grupo" title="Grupo @ViewBag.Atividades[0].Grupo" class="link-grupos" itemprop="keywords">@ViewBag.Atividades[0].GrupoRelacionamento.Descricao - &nbsp;<small class="link-grupos-date" itemprop="datePublished"> @ViewBag.Atividades[0].Data.ToString("dd/MM/yyyy")</small></a>
+                    <a href="/atividade/@ViewBag.Atividades[0].Link" class="float-right btn btn-eco-azul" rel="nofollow" title="@ViewBag.Atividades[0].Titulo">Leia mais <i class="fa fa-angle-right seta-direita"></i></a>
+                </article>
+                <article class="col-md-4 item item-mobile item-mobile-sem-borda-direita">
+                    <header><h2><strong itemprop="name">@ViewBag.Atividades[1].Titulo</strong></h2></header>
+                    <h3 class="col-100">
+                        <a href="/atividade/@ViewBag.Atividades[1].Link" title="@ViewBag.Atividades[1].Titulo" itemprop="url description">
+                            @ViewBag.Atividades[1].Resumo
+                        </a>
+                    </h3>
+                    @{
+                        grupo = string.Format("grupo{0}", ViewBag.Atividades[1].Grupo);
+                    }
+                    <a href="/atividades/@grupo" title="Grupo @ViewBag.Atividades[1].Grupo" class="link-grupos" itemprop="keywords">@ViewBag.Atividades[1].GrupoRelacionamento.Descricao - &nbsp;<small class="link-grupos-date" itemprop="datePublished"> @ViewBag.Atividades[1].Data.ToString("dd/MM/yyyy")</small></a>
+                    <a href="/atividade/@ViewBag.Atividades[1].Link" class="float-right btn btn-eco-azul" rel="nofollow" title="@ViewBag.Atividades[1].Titulo">Leia mais <i class="fa fa-angle-right seta-direita"></i></a>
+                </article>
+                <article class="col-md-4 item item-sem-borda item-mobile-sem-borda-direita">
+                    <header><h2><strong itemprop="name">@ViewBag.Atividades[2].Titulo</strong></h2></header>
+                    <h3 class="col-100">
+                        <a href="/atividade/@ViewBag.Atividades[2].Link" title="@ViewBag.Atividades[2].Titulo" itemprop="url description">
+                            @ViewBag.Atividades[2].Resumo
+                        </a>
+                    </h3>
+                    @{
+                        grupo = string.Format("grupo{0}", ViewBag.Atividades[2].Grupo);
+                    }
+                    <a href="/atividades/@grupo" title="Grupo @ViewBag.Atividades[2].Grupo" class="link-grupos" itemprop="keywords">@ViewBag.Atividades[2].GrupoRelacionamento.Descricao - &nbsp;<small class="link-grupos-date" itemprop="datePublished"> @ViewBag.Atividades[2].Data.ToString("dd/MM/yyyy")</small></a>
+                    <a href="/atividade/@ViewBag.Atividades[2].Link" class="float-right btn btn-eco-azul" rel="nofollow" title="@ViewBag.Atividades[2].Titulo">Leia mais <i class="fa fa-angle-right seta-direita"></i></a>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div class="linha">
+        <div class="container">
+            <div class="row text-center">
+                <article class="col-md-4 item item-mobile item-mobile-sem-borda-direita">
+                    <header><h2><strong itemprop="name">@ViewBag.Atividades[3].Titulo</strong></h2></header>
+                    <h3 class="col-100">
+                        <a href="/atividade/@ViewBag.Atividades[3].Link" title="@ViewBag.Atividades[3].Titulo" itemprop="url description">
+                            @ViewBag.Atividades[3].Resumo
+                        </a>
+                    </h3>
+                    @{
+                        grupo = string.Format("grupo{0}", ViewBag.Atividades[3].Grupo);
+                    }
+                    <a href="/atividades/@grupo" title="Grupo @ViewBag.Atividades[3].Grupo" class="link-grupos" itemprop="keywords">@ViewBag.Atividades[3].GrupoRelacionamento.Descricao - &nbsp;<small class="link-grupos-date" itemprop="datePublished"> @ViewBag.Atividades[3].Data.ToString("dd/MM/yyyy")</small></a>
+                    <a href="/atividade/@ViewBag.Atividades[3].Link" class="float-right btn btn-eco-azul" rel="nofollow" title="@ViewBag.Atividades[3].Titulo">Leia mais <i class="fa fa-angle-right seta-direita"></i></a>
+                </article>
+                <article class="col-md-4 item item-mobile item-mobile-sem-borda-direita">
+                    <header><h2><strong itemprop="name">@ViewBag.Atividades[4].Titulo</strong></h2></header>
+                    <h3 class="col-100">
+                        <a href="/atividade/@ViewBag.Atividades[4].Link" title="@ViewBag.Atividades[4].Titulo" itemprop="url description">
+                            @ViewBag.Atividades[4].Resumo
+                        </a>
+                    </h3>
+                    @{
+                        grupo = string.Format("grupo{0}", ViewBag.Atividades[4].Grupo);
+                    }
+                    <a href="/atividades/@grupo" title="Grupo @ViewBag.Atividades[4].Grupo" class="link-grupos" itemprop="keywords">@ViewBag.Atividades[4].GrupoRelacionamento.Descricao - &nbsp;<small class="link-grupos-date" itemprop="datePublished"> @ViewBag.Atividades[4].Data.ToString("dd/MM/yyyy")</small></a>
+                    <a href="/atividade/@ViewBag.Atividades[4].Link" class="float-right btn btn-eco-azul" rel="nofollow" title="@ViewBag.Atividades[4].Titulo">Leia mais <i class="fa fa-angle-right seta-direita"></i></a>
+                </article>
+                <article class="col-md-4 item item-sem-borda item-mobile-sem-borda-direita">
+                    <header><h2><strong itemprop="name">@ViewBag.Atividades[5].Titulo</strong></h2></header>
+                    <h3 class="col-100">
+                        <a href="/atividade/@ViewBag.Atividades[5].Link" title="@ViewBag.Atividades[5].Titulo" itemprop="url description">
+                            @ViewBag.Atividades[5].Resumo
+                        </a>
+                    </h3>
+                    @{
+                        grupo = string.Format("grupo{0}", ViewBag.Atividades[5].Grupo);
+                    }
+                    <a href="/atividades/@grupo" title="Grupo @ViewBag.Atividades[5].Grupo" class="link-grupos" itemprop="keywords">@ViewBag.Atividades[5].GrupoRelacionamento.Descricao - &nbsp;<small class="link-grupos-date" itemprop="datePublished"> @ViewBag.Atividades[5].Data.ToString("dd/MM/yyyy")</small></a>
+                    <a href="/atividade/@ViewBag.Atividades[5].Link" class="float-right btn btn-eco-azul" rel="nofollow" title="@ViewBag.Atividades[5].Titulo">Leia mais <i class="fa fa-angle-right seta-direita"></i></a>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

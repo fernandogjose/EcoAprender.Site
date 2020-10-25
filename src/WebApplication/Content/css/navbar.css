@@ -1,0 +1,106 @@
+﻿.navbar {
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar-ecoaprender {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+    .navbar-ecoaprender .navbar-brand {
+        color: #000;
+        font-family: 'Fugaz One', cursive;
+        font-size: 25px;
+    }
+
+    .navbar-ecoaprender .navbar-nav > li > a {
+        color: #fff;
+    }
+
+        .navbar-ecoaprender .navbar-nav > li > a:hover {
+            color: #fff;
+        }
+
+        .navbar-ecoaprender .navbar-nav > li > a:focus {
+            color: #fff;
+        }
+
+    .navbar-ecoaprender .navbar-toggle {
+        border-color: #fff;
+        background-color: #fff;
+    }
+
+        .navbar-ecoaprender .navbar-toggle:hover {
+            border-color: #fff;
+            background-color: #fff;
+        }
+
+        .navbar-ecoaprender .navbar-toggle:focus {
+            border-color: #fff;
+            background-color: #fff;
+        }
+
+        .navbar-ecoaprender .navbar-toggle .icon-bar {
+            background-color: #428bca;
+        }
+
+    .navbar-ecoaprender .navbar-nav.menu-admin > li > a {
+        color: #000;
+    }
+
+        .navbar-ecoaprender .navbar-nav.menu-admin > li > a:hover {
+            color: #000;
+        }
+
+        .navbar-ecoaprender .navbar-nav.menu-admin > li > a:focus {
+            color: #000;
+        }
+
+.paddingRight0 {
+    padding-right: 0;
+}
+
+.liIndex {
+    background-color: #5bb2fc;
+}
+
+.liSobre {
+    background-color: #ffa659;
+}
+
+.liProgramaBilingue {
+    background-color: #B881CF;
+}
+
+.liAtividades {
+    background-color: #fec63f;
+}
+
+.liFacebook {
+    background-color: #3c5a99
+}
+
+.liBlog {
+    background-color: #eb5858;
+}
+
+.liVideos {
+    background-color: #905bfc;
+}
+
+.liFotos {
+    background-color: #47ca92;
+}
+
+.liProfessor {
+    background-color: #fc5b5b;
+}
+
+.liPortaldoAluno {
+    background-color: #fc8d5b;
+}
+
+.liFaleConosco {
+    background-color: #5bbbfc;
+}

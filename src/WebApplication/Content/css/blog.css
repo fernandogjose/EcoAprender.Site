@@ -1,0 +1,22 @@
+﻿#homeBlog {
+    margin-top: 30px;
+}
+
+#homeBlog .todos-blogs{
+    margin-top: 30px;
+}
+
+    #homeBlog h2 {
+        font-size: 20px;
+        font-family: 'Fugaz One', cursive;
+        color: #1a95be;
+        min-height: 60px;
+    }
+
+    
+
+    #homeBlog .resumo{
+        min-height: 100px;
+    }
+
+

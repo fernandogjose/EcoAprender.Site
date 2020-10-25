@@ -1,0 +1,60 @@
+﻿@model List<Domain.Entities.Blog>
+
+@{
+    ViewBag.Title = "Escola Infantil e Berçário Eco Aprender - Blog";
+    ViewBag.MetaDescription = "Este blog fala sobre assuntos relacionados a escola, data comemorativas e curiosidades";
+}
+
+<section id="main" itemscope itemtype="http://schema.org/Blog">
+
+    <header>
+        <img src="~/img/header-blog.jpg" class="img-responsive img-principal" alt="Blog da Escola Eco Aprender" itemprop="image" />
+    </header>
+
+    <section id="navegacao-header" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a rel="nofollow" href="@Url.Action("index", "Site")" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/blog-por-categoria/todas" title="Todas" itemprop="name">Todas</a><i class="fa fa-angle-right"></i></li>
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <li><a href="/blog-por-categoria/@categoria" title="@categoria">@categoria</a><i class="fa fa-angle-right"></i></li>
+                }
+            </ul>
+        </nav>
+    </section>
+
+    <div class="container pagina-interna" id="homeBlog">
+        <div class="row">
+            @foreach (var blog in Model)
+            {
+                <article class="col-xs-12 col-md-4 todos-blogs" itemscope itemtype="http://schema.org/BlogPosting">
+                    <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé, @blog.Categoria" />
+                    <meta itemprop="author" content="Fernando José" />
+                    <meta itemprop="datePublished" content="@blog.DataInclusao" />
+                    <meta itemprop="dateModified" content="@blog.DataAlteracao" />
+
+                    <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                        <span itemprop="name">
+                            Escola de Educação Infantil e Berçário Eco Aprender
+                        </span>
+                        <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                            <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                        </div>
+                    </div>
+
+                    <header>
+                        <figure itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                            <img src="/img/blog/@blog.FotoResumo" class="img-responsive" title="@blog.Titulo" alt="@blog.Titulo" itemprop="url" />
+                            <meta itemprop="width" content="550">
+                            <meta itemprop="height" content="400">
+                        </figure>
+                    </header>
+                    <h2 itemprop="headline mainEntityOfPage">@blog.Titulo</h2>
+                    <div itemprop="description" class="resumo">@Html.Raw(blog.Resumo)</div>
+                    <a href="/Blog/@blog.Link" itemprop="url" class="btn btn-saiba-mais-orange">VEJA MAIS</a>
+                </article>
+            }
+        </div>
+    </div>
+</section>

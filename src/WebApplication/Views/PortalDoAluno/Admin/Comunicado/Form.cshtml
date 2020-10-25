@@ -1,0 +1,128 @@
+﻿@model Domain.Entities.Comunicado
+
+@{
+    ViewBag.Title = "Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender";
+    ViewBag.MetaDescription = "No portal do aluno da Escola Eco Aprender, os pais e alunos da escola tem acesso ao conteúdo programático, comunicados e ao cardápio.";
+}
+
+<input type="text" id="isAdmin" value="true" class="hide" />
+
+<div class="home-frase alpha60 titulo-desktop">
+    <h2 class="texto-branco">COMUNICADOS</h2>
+</div>
+<img src="/img/portal-do-aluno/portal-do-aluno-header.jpg" class="img-responsive img-principal" title="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" alt="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" />
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Painel" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Admin/Comunicado" title="Comunicado">Comunicados</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pagina-interna">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+            <h2>Cadastro de <strong>Comunicado</strong></h2>
+
+            <form class="form-horizontal" id="form" name="form" method="post" action="@Url.Action("salvar", "portal-do-aluno/admin/comunicado")">
+                <div class="form-group">
+                    <label for="Nome" class="col-xs-2 control-label"></label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Id, new { @class = "hide" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Data</label>
+                    <div class="col-xs-5">
+                        @Html.EditorFor(x => x.Data, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Pedir Confirmação</label>
+                    <div class="col-xs-5">
+                        @Html.CheckBoxFor(x => x.Confirmar)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Login" class="col-xs-2 control-label">Titulo</label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Senha" class="col-xs-2 control-label">Descrição</label>
+                    <div class="col-xs-5">
+                        @Html.TextAreaFor(x => x.Descricao, new { @class = "form-control", @rows = 50, @id = "Descricao" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <button type="submit" class="btn btn-primary btn-salvar" id="salvar">Salvar</button>
+                        <a href="/portal-do-aluno/admin/comunicado" type="button" class="btn btn-warning">Voltar</a>
+                    </div>
+                </div>
+
+                <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide" id="mensagemDeErro">
+
+                </p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Painel" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Admin/Comunicado" title="Comunicado">Comunicados</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="actionPainel" value="@Url.Action("Painel", "PortalDoAluno")" />
+
+@section scripts{
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    @Scripts.Render("~/bundles/adminComunicadoCadastrar")
+
+    <script>
+        tinymce.init({
+            fontsize_formats: "8pt 9pt 10pt 11pt 12pt 26pt 36pt",
+            theme: 'modern',
+            selector: 'textarea',
+            height: 500,
+            plugins: [
+                "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor | fontsizeselect',
+            content_css: [
+              '//www.carspremium.com.br/content/bootstrap.css',
+              '//www.carspremium.com.br/content/site.css',
+              '//www.carspremium.com.br/content/blog.css'
+            ]
+        });
+    </script>
+}

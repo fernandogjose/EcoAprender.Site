@@ -1,0 +1,116 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{31919282-9225-44DA-B9B1-53C606413CAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{3A2625C8-0A86-421B-ADE4-E2EB6515B517}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{88A8858B-3069-480C-B0D9-A5A663ED0F70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{50769F7B-96A2-4019-82C6-BE6D93C18CDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Application\Application.csproj", "{CF08CB6C-1B25-4465-8569-300F1AD06345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{01161482-BFE1-4344-B5B9-EA1FC62D2CF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "src\Data\Data.csproj", "{02236FA9-ECEF-4846-8475-FB68E8DD3E0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DF6988A8-E6C9-4B3A-ABD9-029335A84A89}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC", "src\IoC\IoC.csproj", "{F9C3E3BD-ADBB-4C8A-A3F1-600385E30A9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email", "src\Email\Email.csproj", "{AE1271F5-93F4-475B-9B68-24700A02365C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "src\WebApplication\WebApplication.csproj", "{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "src\WebApi\WebApi.csproj", "{F6A57B89-7A93-4030-8D18-197F4EDC79B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF08CB6C-1B25-4465-8569-300F1AD06345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF08CB6C-1B25-4465-8569-300F1AD06345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF08CB6C-1B25-4465-8569-300F1AD06345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF08CB6C-1B25-4465-8569-300F1AD06345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01161482-BFE1-4344-B5B9-EA1FC62D2CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01161482-BFE1-4344-B5B9-EA1FC62D2CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01161482-BFE1-4344-B5B9-EA1FC62D2CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01161482-BFE1-4344-B5B9-EA1FC62D2CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02236FA9-ECEF-4846-8475-FB68E8DD3E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02236FA9-ECEF-4846-8475-FB68E8DD3E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02236FA9-ECEF-4846-8475-FB68E8DD3E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02236FA9-ECEF-4846-8475-FB68E8DD3E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C3E3BD-ADBB-4C8A-A3F1-600385E30A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C3E3BD-ADBB-4C8A-A3F1-600385E30A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C3E3BD-ADBB-4C8A-A3F1-600385E30A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C3E3BD-ADBB-4C8A-A3F1-600385E30A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1271F5-93F4-475B-9B68-24700A02365C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1271F5-93F4-475B-9B68-24700A02365C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1271F5-93F4-475B-9B68-24700A02365C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1271F5-93F4-475B-9B68-24700A02365C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A57B89-7A93-4030-8D18-197F4EDC79B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A57B89-7A93-4030-8D18-197F4EDC79B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A57B89-7A93-4030-8D18-197F4EDC79B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A57B89-7A93-4030-8D18-197F4EDC79B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF08CB6C-1B25-4465-8569-300F1AD06345} = {3A2625C8-0A86-421B-ADE4-E2EB6515B517}
+		{01161482-BFE1-4344-B5B9-EA1FC62D2CF7} = {88A8858B-3069-480C-B0D9-A5A663ED0F70}
+		{02236FA9-ECEF-4846-8475-FB68E8DD3E0B} = {50769F7B-96A2-4019-82C6-BE6D93C18CDB}
+		{F9C3E3BD-ADBB-4C8A-A3F1-600385E30A9D} = {50769F7B-96A2-4019-82C6-BE6D93C18CDB}
+		{AE1271F5-93F4-475B-9B68-24700A02365C} = {50769F7B-96A2-4019-82C6-BE6D93C18CDB}
+		{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0} = {31919282-9225-44DA-B9B1-53C606413CAC}
+		{F6A57B89-7A93-4030-8D18-197F4EDC79B5} = {31919282-9225-44DA-B9B1-53C606413CAC}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://fabricafgj.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\Application\\Application.csproj
+		SccProjectTopLevelParentUniqueName1 = EcoAprender.sln
+		SccProjectName1 = src/Application
+		SccLocalPath1 = src\\Application
+		SccProjectUniqueName2 = src\\Domain\\Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = EcoAprender.sln
+		SccProjectName2 = src/Domain
+		SccLocalPath2 = src\\Domain
+		SccProjectUniqueName3 = src\\Data\\Data.csproj
+		SccProjectTopLevelParentUniqueName3 = EcoAprender.sln
+		SccProjectName3 = src/Data
+		SccLocalPath3 = src\\Data
+		SccProjectUniqueName4 = src\\IoC\\IoC.csproj
+		SccProjectTopLevelParentUniqueName4 = EcoAprender.sln
+		SccProjectName4 = src/IoC
+		SccLocalPath4 = src\\IoC
+		SccProjectUniqueName5 = src\\Email\\Email.csproj
+		SccProjectTopLevelParentUniqueName5 = EcoAprender.sln
+		SccProjectName5 = src/Email
+		SccLocalPath5 = src\\Email
+		SccProjectUniqueName6 = src\\WebApplication\\WebApplication.csproj
+		SccProjectTopLevelParentUniqueName6 = EcoAprender.sln
+		SccProjectName6 = src/WebApplication
+		SccLocalPath6 = src\\WebApplication
+		SccProjectUniqueName7 = src\\WebApi\\WebApi.csproj
+		SccProjectTopLevelParentUniqueName7 = EcoAprender.sln
+		SccProjectName7 = src/WebApi
+		SccLocalPath7 = src\\WebApi
+	EndGlobalSection
+EndGlobal

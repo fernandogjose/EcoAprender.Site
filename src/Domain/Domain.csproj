@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01161482-BFE1-4344-B5B9-EA1FC62D2CF7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\Application\IEscolaAppService.cs" />
+    <Compile Include="Interfaces\Application\IComunicadoLeituraUsuarioAppService.cs" />
+    <Compile Include="Interfaces\Application\IComunicadoConfirmarUsuarioAppService.cs" />
+    <Compile Include="Interfaces\Application\IGrupoAppService.cs" />
+    <Compile Include="Interfaces\Repositories\ISonoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEvacuacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMedicamentoRealizadoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAlunoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILeiteRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRefeicaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRefeicaoStatusRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRefeicaoAlimentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRefeicaoTipoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMedicamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEscolaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IComunicadoLeituraUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IComunicadoConfirmarUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGrupoRepository.cs" />
+    <Compile Include="Interfaces\Services\IEvacuacaoService.cs" />
+    <Compile Include="Interfaces\Services\ISonoService.cs" />
+    <Compile Include="Interfaces\Services\IMedicamentoRealizadoService.cs" />
+    <Compile Include="Interfaces\Services\IAlunoService.cs" />
+    <Compile Include="Interfaces\Services\ILeiteService.cs" />
+    <Compile Include="Interfaces\Services\IRefeicaoTipoService.cs" />
+    <Compile Include="Interfaces\Services\IRefeicaoAlimentoService.cs" />
+    <Compile Include="Interfaces\Services\IRefeicaoStatusService.cs" />
+    <Compile Include="Interfaces\Services\IRefeicaoService.cs" />
+    <Compile Include="Interfaces\Services\IMedicamentoService.cs" />
+    <Compile Include="Interfaces\Services\IEscolaService.cs" />
+    <Compile Include="Interfaces\Services\IComunicadoLeituraUsuarioService.cs" />
+    <Compile Include="Interfaces\Services\IComunicadoConfirmarUsuarioService.cs" />
+    <Compile Include="Interfaces\Services\IGrupoService.cs" />
+    <Compile Include="Mappers\VideoMapper.cs" />
+    <Compile Include="Mappers\AtividadeMapper.cs" />
+    <Compile Include="Mappers\EscolaMapper.cs" />
+    <Compile Include="Mappers\ChatMensagemMapper.cs" />
+    <Compile Include="Mappers\ChatMapper.cs" />
+    <Compile Include="Mappers\ComunicadoLeituraUsuarioMapper.cs" />
+    <Compile Include="Mappers\ComunicadoConfirmarUsuarioMapper.cs" />
+    <Compile Include="Mappers\ComunicadoMapper.cs" />
+    <Compile Include="Mappers\GrupoMapper.cs" />
+    <Compile Include="Models\Evacuacao.cs" />
+    <Compile Include="Models\MedicamentoRealizado.cs" />
+    <Compile Include="Models\Sono.cs" />
+    <Compile Include="Models\Leite.cs" />
+    <Compile Include="Models\Refeicao.cs" />
+    <Compile Include="Models\RefeicaoAlimento.cs" />
+    <Compile Include="Models\RefeicaoStatus.cs" />
+    <Compile Include="Models\RefeicaoTipo.cs" />
+    <Compile Include="Models\Parentesco.cs" />
+    <Compile Include="Models\AlunoPais.cs" />
+    <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\Escola.cs" />
+    <Compile Include="Models\ComunicadoLeituraUsuario.cs" />
+    <Compile Include="Models\ComunicadoConfirmarUsuario.cs" />
+    <Compile Include="Models\Grupo.cs" />
+    <Compile Include="Models\GrupoUsuario.cs" />
+    <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\Medicamento.cs" />
+    <Compile Include="Models\Perfil.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\SugestaoResposta.cs" />
+    <Compile Include="Models\Sugestao.cs" />
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\Base.cs" />
+    <Compile Include="Models\Atividade.cs" />
+    <Compile Include="Models\Calendario.cs" />
+    <Compile Include="Models\Cardapio.cs" />
+    <Compile Include="Models\Comunicado.cs" />
+    <Compile Include="Models\EmailEsqueciMinhaSenha.cs" />
+    <Compile Include="Models\Email\EmailEnviar.cs" />
+    <Compile Include="Models\Email\FaleConosco.cs" />
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\ChatMensagem.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Exceptions\CommonException.cs" />
+    <Compile Include="Helpers\CriptHelper.cs" />
+    <Compile Include="Helpers\TokenHelper.cs" />
+    <Compile Include="Interfaces\Application\IChatAppService.cs" />
+    <Compile Include="Interfaces\Application\IChatMensagemAppService.cs" />
+    <Compile Include="Interfaces\Application\ISugestaoRespostaAppService.cs" />
+    <Compile Include="Interfaces\Application\ISugestaoAppService.cs" />
+    <Compile Include="Interfaces\Application\IBlogAppService.cs" />
+    <Compile Include="Interfaces\Application\IVideoAppService.cs" />
+    <Compile Include="Interfaces\Application\IComunicadoAppService.cs" />
+    <Compile Include="Interfaces\Application\IUsuarioAppService.cs" />
+    <Compile Include="Interfaces\Application\IBaseAppService.cs" />
+    <Compile Include="Interfaces\Application\IAtividadeAppService.cs" />
+    <Compile Include="Interfaces\Email\IFaleConoscoService.cs" />
+    <Compile Include="Interfaces\Repositories\IChatRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IChatMensagemRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISugestaoRespostaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISugestaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBlogRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IVideoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IComunicadoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Services\IChatMensagemService.cs" />
+    <Compile Include="Interfaces\Services\IChatService.cs" />
+    <Compile Include="Interfaces\Services\ISugestaoRespostaService.cs" />
+    <Compile Include="Interfaces\Services\ISugestaoService.cs" />
+    <Compile Include="Interfaces\Services\IBlogService.cs" />
+    <Compile Include="Interfaces\Services\IVideoService.cs" />
+    <Compile Include="Interfaces\Services\IComunicadoService.cs" />
+    <Compile Include="Interfaces\Services\IUsuarioService.cs" />
+    <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAtividadeRepository.cs" />
+    <Compile Include="Interfaces\Services\IBaseService.cs" />
+    <Compile Include="Interfaces\Services\IAtividadeService.cs" />
+    <Compile Include="Mappers\UsuarioMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SonoService.cs" />
+    <Compile Include="Services\EvacuacaoService.cs" />
+    <Compile Include="Services\MedicamentoRealizadoService.cs" />
+    <Compile Include="Services\LeiteService.cs" />
+    <Compile Include="Services\RefeicaoTipoService.cs" />
+    <Compile Include="Services\RefeicaoAlimentoService.cs" />
+    <Compile Include="Services\RefeicaoStatusService.cs" />
+    <Compile Include="Services\RefeicaoService.cs" />
+    <Compile Include="Services\MedicamentoService.cs" />
+    <Compile Include="Services\EscolaService.cs" />
+    <Compile Include="Services\ComunicadoLeituraUsuarioService.cs" />
+    <Compile Include="Services\ComunicadoConfirmarUsuarioService.cs" />
+    <Compile Include="Services\ChatMensagemService.cs" />
+    <Compile Include="Services\ChatService.cs" />
+    <Compile Include="Services\SugestaoRespostaService.cs" />
+    <Compile Include="Services\SugestaoService.cs" />
+    <Compile Include="Services\BlogService.cs" />
+    <Compile Include="Services\GrupoService.cs" />
+    <Compile Include="Services\VideoService.cs" />
+    <Compile Include="Services\ComunicadoService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\AtividadeService.cs" />
+    <Compile Include="ViewModels\VideoViewModel.cs" />
+    <Compile Include="ViewModels\AtividadeViewModel.cs" />
+    <Compile Include="ViewModels\EscolaViewModel.cs" />
+    <Compile Include="ViewModels\ChatViewModel.cs" />
+    <Compile Include="ViewModels\ChatMensagemViewModel.cs" />
+    <Compile Include="ViewModels\ComunicadoLeituraUsuarioViewModel.cs" />
+    <Compile Include="ViewModels\ComunicadoConfirmarUsuarioViewModel.cs" />
+    <Compile Include="ViewModels\GrupoViewModel.cs" />
+    <Compile Include="ViewModels\ComunicadoViewModel.cs" />
+    <Compile Include="ViewModels\ComunicadoRelatorioViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="ViewModels\ParaTipoViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

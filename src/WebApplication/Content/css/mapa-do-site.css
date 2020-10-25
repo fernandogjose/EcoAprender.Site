@@ -1,0 +1,66 @@
+﻿.div-mapa-do-site {
+    width: 100%;
+    background-color: #76B0E2;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 1px;
+    text-align: center;
+}
+
+    .div-mapa-do-site h2 {
+        font-size: 13px;
+    }
+
+    .div-mapa-do-site .titulo {
+        padding-top: 20px;
+        color: #000;
+    }
+
+    .div-mapa-do-site p {
+        color: #000;
+        font-size: 12px;
+    }
+
+    .div-mapa-do-site ul {
+        list-style: none;
+    }
+
+    .div-mapa-do-site a {
+        color: #000;
+        font-size: 12px;
+    }
+
+        .div-mapa-do-site a:hover {
+            color: #333333;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+/* mobile */
+@media screen and (max-width:600px) {
+    .div-mapa-do-site .titulo {
+        padding-top: 20px;
+        color: #000;
+        font-size: 10px;
+    }
+
+    .div-mapa-do-site p {
+        color: #000;
+        font-size: 9px;
+    }
+
+    .div-mapa-do-site .clearBoth {
+        clear: both;
+    }
+}
+
+/* tablet */
+@media screen and (min-width:600px) and (max-width:992px) {
+    .div-mapa-do-site .clearBoth {
+        clear: both;
+    }
+}
+
+/* desktop */
+@media screen and (min-width:992px) {
+}

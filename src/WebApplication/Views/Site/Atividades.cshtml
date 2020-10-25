@@ -1,0 +1,89 @@
+﻿@model List<Domain.Entities.Atividade>
+
+@{
+    ViewBag.Title = "Escola Eco Aprender - Atividades do Infantil e Berçário";
+    ViewBag.MetaDescription = "Atividades do berçário e infantil da escola Eco Aprender no Tatuapé, Anália Franco. A melhor escola de educação infantil da zona leste";
+
+    var grupos = ViewBag.Grupos as List<Domain.Entities.Grupo>;
+}
+
+<section id="main">
+    <header>
+        <img src="~/img/atividade.jpg" class="img-responsive img-principal" alt="Escola de Educação Infantil e Berçário Eco Aprender" />
+    </header>
+
+    <section id="navegaco-header" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a href="/" rel="nofollow" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/atividades" title="Atividades">Atividades</a><i class="fa fa-angle-right"></i></li>
+
+                @foreach (var grupo in grupos)
+                {
+                    <li><a href="/atividades/@grupo.Id" title="Atividades do @grupo.Descricao">@grupo.Descricao</a><i class="fa fa-angle-right"></i></li>
+                }
+            </ul>
+        </nav>
+    </section>
+
+    <section id="atividades" class="container pagina-interna">
+        <div class="row">
+            @foreach (var atividade in Model)
+            {
+                <article class="col-xs-12 col-md-6 margin-bottom-10" itemscope itemtype="http://schema.org/BlogPosting">
+                    <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé, @atividade.MetaTitle" />
+                    <meta itemprop="author" content="Fernando José" />
+                    <meta itemprop="dateModified" content="@atividade.DataAlteracao" />
+
+                    <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                        <span itemprop="name">
+                            Escola de Educação Infantil e Berçário Eco Aprender
+                        </span>
+                        <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                            <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                        </div>
+                    </div>
+
+                    <header>
+                        <figure itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                            <meta itemprop="width" content="550">
+                            <meta itemprop="height" content="400">
+
+                            @{
+                                var src = string.Format("/img/atividades/{0}/{1}", atividade.Id, atividade.FotoResumo);
+                            }
+                            <img class="img-responsive foto-resumo" alt="@atividade.Titulo" src="@src" itemprop="url" />
+                        </figure>
+                        <p class="atividades">
+                            <small itemprop="datePublished">@atividade.Data.ToString("dd/MM/yyyy")</small>
+                        </p>
+                    </header>
+                    <p>
+                        <h2 itemprop="name headline mainEntityOfPage">@atividade.Titulo</h2>
+                        <h3 class="atividades">
+                            <a href="/atividade/@atividade.Link" title="@atividade.Titulo" itemprop="url description">
+                                @atividade.Resumo
+                            </a>
+                        </h3>
+                        <a href="/atividades/@atividade.GrupoId" title="@atividade.GrupoRelacionamento.Descricao" class="float-left" itemprop="keywords">@atividade.GrupoRelacionamento.Descricao</a>
+                        <a href="/atividade/@atividade.Link" title="@atividade.Titulo" class="float-right btn btn-eco-azul" rel="nofollow">Leia Mais <i class="fa fa-angle-right seta-direita"></i></a>
+                    </p>
+                </article>
+            }
+        </div>
+    </section>
+
+    <section id="navegaco-footer" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a href="/" rel="nofollow" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/atividades" title="Atividades">Atividades</a><i class="fa fa-angle-right"></i></li>
+
+                @foreach (var grupo in grupos)
+                {
+                    <li><a href="/atividades/@grupo.Id" title="Atividades do @grupo.Descricao">@grupo.Descricao</a><i class="fa fa-angle-right"></i></li>
+                }
+            </ul>
+        </nav>
+    </section>
+</section>

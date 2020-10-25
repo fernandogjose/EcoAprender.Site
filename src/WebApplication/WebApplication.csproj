@@ -1,0 +1,947 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D48DD54-FBDB-4346-8572-4CBA9B0ABAC0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication</RootNamespace>
+    <AssemblyName>WebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <ApplicationInsightsResourceId>/subscriptions/03a8a9e4-1992-4e70-9fe3-a33e27e9d38a/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/WebApplication</ApplicationInsightsResourceId>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authorize\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Controllers\Admin\VideoController.cs" />
+    <Compile Include="Controllers\Admin\AtividadeController.cs" />
+    <Compile Include="Controllers\Admin\ComunicadoController.cs" />
+    <Compile Include="Controllers\PortalDoAlunoController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ImageUtil.cs" />
+    <Compile Include="ViewModel\UploadFileViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".well-known\pki-validation\godaddy.html" />
+    <Content Include="Cache\Dependency\home.txt" />
+    <Content Include="Content\css\atividade.css" />
+    <Content Include="Content\css\componentes.css" />
+    <Content Include="Content\css\form-validator.css" />
+    <Content Include="Content\css\jquery.lightbox-0.5.css" />
+    <Content Include="Content\css\navbar.css" />
+    <Content Include="Content\css\mapa-do-site.css" />
+    <Content Include="Content\css\home-servicos.css" />
+    <Content Include="Content\css\usuario.css" />
+    <Content Include="Content\css\pagina-interna.css" />
+    <Content Include="Content\css\portal-do-aluno.css" />
+    <Content Include="Content\css\redes-sociais.css" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\css\slideout.css" />
+    <Content Include="Content\css\blog.css" />
+    <Content Include="Content\css\video.css" />
+    <Content Include="img\aluno-estudando-escola.jpg" />
+    <Content Include="img\app\atividades.jpg" />
+    <Content Include="img\app\comunicados.jpg" />
+    <Content Include="img\app\painel-topo.jpg" />
+    <Content Include="img\app\sugestao.jpg" />
+    <Content Include="img\app\sugestao.png" />
+    <Content Include="img\atividade.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-1.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-2.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-3.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-4.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-5.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-6.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-7.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-8.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-header.jpg" />
+    <Content Include="img\atividades\bercario-g1-mascotes-jogos-olimpicos-resumo.jpg" />
+    <Content Include="img\atividades\carnaval-g2-1.jpg" />
+    <Content Include="img\atividades\carnaval-g2-2.jpg" />
+    <Content Include="img\atividades\carnaval-g2-3.jpg" />
+    <Content Include="img\atividades\carnaval-g2-4.jpg" />
+    <Content Include="img\atividades\carnaval-g2-5.jpg" />
+    <Content Include="img\atividades\carnaval-g2-6.jpg" />
+    <Content Include="img\atividades\carnaval-g2-header.jpg" />
+    <Content Include="img\atividades\carnaval-g2-resumo.jpg" />
+    <Content Include="img\atividades\carnaval-g4-1.jpg" />
+    <Content Include="img\atividades\carnaval-g4-2.jpg" />
+    <Content Include="img\atividades\carnaval-g4-3.jpg" />
+    <Content Include="img\atividades\carnaval-g4-4.jpg" />
+    <Content Include="img\atividades\carnaval-g4-5.jpg" />
+    <Content Include="img\atividades\carnaval-g4-6.jpg" />
+    <Content Include="img\atividades\carnaval-g4-header.jpg" />
+    <Content Include="img\atividades\carnaval-g4-resumo.jpg" />
+    <Content Include="img\atividades\carnaval-g5-1.jpg" />
+    <Content Include="img\atividades\carnaval-g5-2.jpg" />
+    <Content Include="img\atividades\carnaval-g5-3.jpg" />
+    <Content Include="img\atividades\carnaval-g5-4.jpg" />
+    <Content Include="img\atividades\carnaval-g5-5.jpg" />
+    <Content Include="img\atividades\carnaval-g5-6.jpg" />
+    <Content Include="img\atividades\carnaval-g5-7.jpg" />
+    <Content Include="img\atividades\carnaval-g5-header.jpg" />
+    <Content Include="img\atividades\carnaval-g5-resumo.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-1.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-2.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-3.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-4.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-5.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-6.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-capa.jpg" />
+    <Content Include="img\atividades\circuito-motores-grupo-3-resumo.jpg" />
+    <Content Include="img\atividades\comunicado-teste.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-1.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-2.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-3.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-4.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-5.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-header.jpg" />
+    <Content Include="img\atividades\g2-andando-em-caixa-de-ovo-resumo.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-1.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-2.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-3.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-4.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-5.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-6.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-7.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-8.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-9.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-header.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-header.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-resumo.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-1.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-2.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-3.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-g-1-1.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-g-1-2.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-g-1-3.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-g-1-header.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-2-g-1-resumo.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-header.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-semana-resumo.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-1.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-2.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-3.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-4.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-5.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-capa.jpg" />
+    <Content Include="img\atividades\desenhando-com-o-grupo-4-resumo.jpg" />
+    <Content Include="img\atividades\eco-ferias-1.jpg" />
+    <Content Include="img\atividades\eco-ferias-2.jpg" />
+    <Content Include="img\atividades\eco-ferias-3.jpg" />
+    <Content Include="img\atividades\eco-ferias-4.jpg" />
+    <Content Include="img\atividades\eco-ferias-5.jpg" />
+    <Content Include="img\atividades\eco-ferias-6.jpg" />
+    <Content Include="img\atividades\eco-ferias-header.jpg" />
+    <Content Include="img\atividades\eco-ferias-resumo.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-1.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-2.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-3.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-4.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-5.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-6.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-header.jpg" />
+    <Content Include="img\atividades\g1-animais-sons-resumo.jpg" />
+    <Content Include="img\atividades\g1-ferias-1.jpg" />
+    <Content Include="img\atividades\g1-ferias-10.jpg" />
+    <Content Include="img\atividades\g1-ferias-11.jpg" />
+    <Content Include="img\atividades\g1-ferias-12.jpg" />
+    <Content Include="img\atividades\g1-ferias-2.jpg" />
+    <Content Include="img\atividades\g1-ferias-3.jpg" />
+    <Content Include="img\atividades\g1-ferias-4.jpg" />
+    <Content Include="img\atividades\g1-ferias-5.jpg" />
+    <Content Include="img\atividades\g1-ferias-6.jpg" />
+    <Content Include="img\atividades\g1-ferias-7.jpg" />
+    <Content Include="img\atividades\g1-ferias-8.jpg" />
+    <Content Include="img\atividades\g1-ferias-9.jpg" />
+    <Content Include="img\atividades\g1-ferias-header.jpg" />
+    <Content Include="img\atividades\g1-ferias-resumo.jpg" />
+    <Content Include="img\atividades\g1-halloween-1.jpg" />
+    <Content Include="img\atividades\g1-halloween-2.jpg" />
+    <Content Include="img\atividades\g1-halloween-3.jpg" />
+    <Content Include="img\atividades\g1-halloween-4.jpg" />
+    <Content Include="img\atividades\g1-halloween-5.jpg" />
+    <Content Include="img\atividades\g1-halloween-header.jpg" />
+    <Content Include="img\atividades\g1-halloween-resumo.jpg" />
+    <Content Include="img\atividades\g2-corpo-e-movimento-resumo.jpg" />
+    <Content Include="img\atividades\g2-ensaio-festa-junina-1.jpg" />
+    <Content Include="img\atividades\g2-ensaio-festa-junina-2.jpg" />
+    <Content Include="img\atividades\g2-ensaio-festa-junina-3.jpg" />
+    <Content Include="img\atividades\g2-ensaio-festa-junina-4.jpg" />
+    <Content Include="img\atividades\g2-ensaio-festa-junina-header.jpg" />
+    <Content Include="img\atividades\g2-ensaio-festa-junina-resumo.jpg" />
+    <Content Include="img\atividades\g2-leitura-escrita-1.JPG" />
+    <Content Include="img\atividades\g2-leitura-escrita-2.JPG" />
+    <Content Include="img\atividades\g2-leitura-escrita-3.JPG" />
+    <Content Include="img\atividades\g2-leitura-escrita-header.jpg" />
+    <Content Include="img\atividades\g2-leitura-escrita-resumo.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-1.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-2.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-3.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-4.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-5.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-6.jpg" />
+    <Content Include="img\atividades\g2-meio-ambiente-7.jpg" />
+    <Content Include="img\atividades\g2-motocas-1.jpg" />
+    <Content Include="img\atividades\g2-motocas-2.jpg" />
+    <Content Include="img\atividades\g2-motocas-3.jpg" />
+    <Content Include="img\atividades\g2-motocas-4.jpg" />
+    <Content Include="img\atividades\g2-motocas-5.jpg" />
+    <Content Include="img\atividades\g2-motocas-6.jpg" />
+    <Content Include="img\atividades\g2-motocas-header.jpg" />
+    <Content Include="img\atividades\g2-motocas-resumo.jpg" />
+    <Content Include="img\atividades\g2-pascoa-1.jpg" />
+    <Content Include="img\atividades\g2-pascoa-2.jpg" />
+    <Content Include="img\atividades\g2-pascoa-3.jpg" />
+    <Content Include="img\atividades\g2-pascoa-4.jpg" />
+    <Content Include="img\atividades\g2-pascoa-5.jpg" />
+    <Content Include="img\atividades\g2-pascoa-6.jpg" />
+    <Content Include="img\atividades\g2-pascoa-7.jpg" />
+    <Content Include="img\atividades\g2-pascoa-8.jpg" />
+    <Content Include="img\atividades\g2-pascoa-9.jpg" />
+    <Content Include="img\atividades\g2-pascoa-header.jpg" />
+    <Content Include="img\atividades\g2-pascoa-resumo.jpg" />
+    <Content Include="img\atividades\g3-leve-pesado-1.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-10.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-2.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-3.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-4.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-5.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-6.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-7.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-8.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-9.JPG" />
+    <Content Include="img\atividades\g3-leve-pesado-header.jpg" />
+    <Content Include="img\atividades\g3-leve-pesado-resumo.jpg" />
+    <Content Include="img\atividades\g3-nomes-1.JPG" />
+    <Content Include="img\atividades\g3-nomes-2.JPG" />
+    <Content Include="img\atividades\g3-nomes-3.JPG" />
+    <Content Include="img\atividades\g3-nomes-4.JPG" />
+    <Content Include="img\atividades\g3-nomes-5.JPG" />
+    <Content Include="img\atividades\g3-nomes-6.JPG" />
+    <Content Include="img\atividades\g3-nomes-7.JPG" />
+    <Content Include="img\atividades\g3-nomes-8.JPG" />
+    <Content Include="img\atividades\g3-nomes-header.jpg" />
+    <Content Include="img\atividades\g3-nomes-resumo.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-1.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-10.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-2.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-3.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-4.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-5.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-6.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-7.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-8.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-9.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-header.jpg" />
+    <Content Include="img\atividades\g3-numeral-quantidade-resumo.jpg" />
+    <Content Include="img\atividades\g4-linguagem-1.jpg" />
+    <Content Include="img\atividades\g4-linguagem-2.jpg" />
+    <Content Include="img\atividades\g4-linguagem-3.jpg" />
+    <Content Include="img\atividades\g4-linguagem-4.jpg" />
+    <Content Include="img\atividades\g4-linguagem-5.jpg" />
+    <Content Include="img\atividades\g4-linguagem-6.jpg" />
+    <Content Include="img\atividades\g4-linguagem-header.jpg" />
+    <Content Include="img\atividades\g4-linguagem-resumo.jpg" />
+    <Content Include="img\atividades\g4-natureza-1.jpg" />
+    <Content Include="img\atividades\g4-natureza-2.jpg" />
+    <Content Include="img\atividades\g4-natureza-3.jpg" />
+    <Content Include="img\atividades\g4-natureza-4.jpg" />
+    <Content Include="img\atividades\g4-natureza-5.jpg" />
+    <Content Include="img\atividades\g4-natureza-6.jpg" />
+    <Content Include="img\atividades\g4-natureza-header.jpg" />
+    <Content Include="img\atividades\g4-natureza-resumo.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-1.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-2.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-3.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-4.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-5.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-6.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-7.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-header.jpg" />
+    <Content Include="img\atividades\g4-pequeno-construtor-resumo.jpg" />
+    <Content Include="img\atividades\g4-vogais-1.jpg" />
+    <Content Include="img\atividades\g4-vogais-2.jpg" />
+    <Content Include="img\atividades\g4-vogais-3.jpg" />
+    <Content Include="img\atividades\g4-vogais-4.jpg" />
+    <Content Include="img\atividades\g4-vogais-header.jpg" />
+    <Content Include="img\atividades\g4-vogais-resumo.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-1.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-2.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-3.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-4.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-5.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-header.jpg" />
+    <Content Include="img\atividades\g5-a-formigarra-educacao-financeira-resumo.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-1.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-2.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-3.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-4.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-5.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-6.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-7.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-header.jpg" />
+    <Content Include="img\atividades\g5-aniversario-da-escola-resumo.jpg" />
+    <Content Include="img\atividades\g5-culinaria-1.jpg" />
+    <Content Include="img\atividades\g5-culinaria-2.jpg" />
+    <Content Include="img\atividades\g5-culinaria-3.jpg" />
+    <Content Include="img\atividades\g5-culinaria-4.jpg" />
+    <Content Include="img\atividades\g5-culinaria-5.jpg" />
+    <Content Include="img\atividades\g5-culinaria-header.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-1.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-2.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-3.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-4.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-5.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-header.jpg" />
+    <Content Include="img\atividades\g5-culinaria-muffin-banana-resumo.jpg" />
+    <Content Include="img\atividades\g5-culinaria-resumo.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-1.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-2.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-3.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-4.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-5.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-6.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-header.jpg" />
+    <Content Include="img\atividades\g5-feira-do-livro-resumo.jpg" />
+    <Content Include="img\atividades\meio-ambiente-1.jpg" />
+    <Content Include="img\atividades\meio-ambiente-10.jpg" />
+    <Content Include="img\atividades\meio-ambiente-2.jpg" />
+    <Content Include="img\atividades\meio-ambiente-3.jpg" />
+    <Content Include="img\atividades\meio-ambiente-4.jpg" />
+    <Content Include="img\atividades\meio-ambiente-5.jpg" />
+    <Content Include="img\atividades\meio-ambiente-6.jpg" />
+    <Content Include="img\atividades\meio-ambiente-7.jpg" />
+    <Content Include="img\atividades\meio-ambiente-8.jpg" />
+    <Content Include="img\atividades\meio-ambiente-9.jpg" />
+    <Content Include="img\atividades\meio-ambiente-header.jpg" />
+    <Content Include="img\atividades\meio-ambiente-resumo.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-1.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-2.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-3.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-4.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-5.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-6.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-7.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-8.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-header.jpg" />
+    <Content Include="img\atividades\meio-de-transporte-resumo.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-1.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-2.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-3.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-4.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-5.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-6.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-7.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-header.jpg" />
+    <Content Include="img\atividades\periodo-de-adaptacao-grupo-2-resumo.jpg" />
+    <Content Include="img\atividades\plaquinhas-1.jpg" />
+    <Content Include="img\atividades\plaquinhas-2.jpg" />
+    <Content Include="img\atividades\plaquinhas-3.jpg" />
+    <Content Include="img\atividades\plaquinhas-4.jpg" />
+    <Content Include="img\atividades\plaquinhas-5.jpg" />
+    <Content Include="img\atividades\plaquinhas-6.jpg" />
+    <Content Include="img\atividades\plaquinhas-7.jpg" />
+    <Content Include="img\atividades\plaquinhas-8.jpg" />
+    <Content Include="img\atividades\plaquinhas-9.jpg" />
+    <Content Include="img\atividades\plaquinhas-header.jpg" />
+    <Content Include="img\atividades\plaquinhas-resumo.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-1.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-2.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-3.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-4.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-5.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-6.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-capa.jpg" />
+    <Content Include="img\atividades\revisao-diversao-aprendizagem-resumo.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-1.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-10.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-11.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-12.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-13.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-14.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-15.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-2.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-3.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-4.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-5.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-6.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-7.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-8.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-9.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-header.jpg" />
+    <Content Include="img\atividades\atividade-de-verao-sesc-resumo.jpg" />
+    <Content Include="img\blog\atividade-integral-1.jpg" />
+    <Content Include="img\blog\atividade-integral-2.jpg" />
+    <Content Include="img\blog\atividade-integral-header.jpg" />
+    <Content Include="img\blog\atividade-integral-resumo.jpg" />
+    <Content Include="img\blog\chia-header.jpg" />
+    <Content Include="img\blog\chia-resumo.jpg" />
+    <Content Include="img\blog\chia.jpg" />
+    <Content Include="img\blog\dia-das-mulheres-header.jpg" />
+    <Content Include="img\blog\dia-das-mulheres-resumo.jpg" />
+    <Content Include="img\blog\dia-das-mulheres.jpg" />
+    <Content Include="img\blog\dia-do-circo-1.jpg" />
+    <Content Include="img\blog\dia-do-circo-header.jpg" />
+    <Content Include="img\blog\dia-do-circo-resumo.jpg" />
+    <Content Include="img\blog\dia-do-indio-1.jpg" />
+    <Content Include="img\blog\dia-do-indio-2.jpg" />
+    <Content Include="img\blog\dia-do-indio-header.jpg" />
+    <Content Include="img\blog\dia-do-indio-resumo.jpg" />
+    <Content Include="img\blog\historia-do-carnaval-no-brasil-header.jpg" />
+    <Content Include="img\blog\historia-do-carnaval-no-brasil-resumo.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-1.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-2.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-3.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-4.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-5.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-header.jpg" />
+    <Content Include="img\blog\como-escolher-a-escola-resumo.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-1.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-2.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-3.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-4.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-5.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-6.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-header.jpg" />
+    <Content Include="img\blog\cordenacao-motora-no-infantil-resumo.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-1.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-10.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-11.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-12.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-13.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-14.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-15.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-16.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-17.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-18.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-19.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-2.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-3.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-4.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-5.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-6.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-7.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-8.jpg" />
+    <Content Include="img\atividades\curso-de-ferias-cabana-9.jpg" />
+    <Content Include="img\blog\educacao-infantil-1.jpg" />
+    <Content Include="img\blog\educacao-infantil-2.jpg" />
+    <Content Include="img\blog\educacao-infantil-3.jpg" />
+    <Content Include="img\blog\educacao-infantil-4.jpg" />
+    <Content Include="img\blog\educacao-infantil-capa.jpg" />
+    <Content Include="img\blog\educacao-infantil-resumo.jpg" />
+    <Content Include="img\blog\historia-do-carnaval-no-brasil-1.jpg" />
+    <Content Include="img\blog\historia-do-carnaval-no-brasil-2.jpg" />
+    <Content Include="img\blog\historia-do-carnaval-no-brasil-3.jpg" />
+    <Content Include="img\blog\historia-do-carnaval-no-brasil-4.jpg" />
+    <Content Include="img\blog\jogo-dos-erros-resumo.jpg" />
+    <Content Include="img\blog\jogo-dos-erros.jpg" />
+    <Content Include="img\blog\pascoa-1.jpg" />
+    <Content Include="img\blog\pascoa-2.jpg" />
+    <Content Include="img\blog\pascoa-header.jpg" />
+    <Content Include="img\blog\pascoa-resumo.jpg" />
+    <Content Include="img\blog\teatro-bibi-ferreira.jpg" />
+    <Content Include="img\blog\teatro-fernanda-montenegro.jpg" />
+    <Content Include="img\blog\teatro-header.jpg" />
+    <Content Include="img\blog\teatro-marilia-pera.jpg" />
+    <Content Include="img\blog\teatro-resumo.jpg" />
+    <Content Include="img\blog\tiradentes-cinco-mil-cruzeiros.jpg" />
+    <Content Include="img\blog\tiradentes-header.jpg" />
+    <Content Include="img\blog\tiradentes-moeda-cinco-centavos.jpg" />
+    <Content Include="img\blog\tiradentes-resumo.jpg" />
+    <Content Include="img\blog\videogame-1.jpg" />
+    <Content Include="img\blog\videogame-2.jpg" />
+    <Content Include="img\blog\videogame-3.jpg" />
+    <Content Include="img\blog\videogame-4.jpg" />
+    <Content Include="img\blog\videogame-5.jpg" />
+    <Content Include="img\blog\videogame-6.jpg" />
+    <Content Include="img\blog\videogame-7.jpg" />
+    <Content Include="img\blog\videogame-8.jpg" />
+    <Content Include="img\blog\videogame-header.jpg" />
+    <Content Include="img\blog\videogame-resumo.jpg" />
+    <Content Include="img\cardapio-bercario.jpg" />
+    <Content Include="img\cardapio-grupo-1.jpg" />
+    <Content Include="img\cardapio-grupo-2.jpg" />
+    <Content Include="img\cardapio-grupo-345.jpg" />
+    <Content Include="img\cardapio-lanches.jpg" />
+    <Content Include="img\carousel\1.jpg" />
+    <Content Include="img\carousel\10.jpg" />
+    <Content Include="img\carousel\11.jpg" />
+    <Content Include="img\carousel\2.jpg" />
+    <Content Include="img\carousel\3.jpg" />
+    <Content Include="img\carousel\4.jpg" />
+    <Content Include="img\carousel\5.jpg" />
+    <Content Include="img\carousel\6.jpg" />
+    <Content Include="img\carousel\7.jpg" />
+    <Content Include="img\carousel\8.jpg" />
+    <Content Include="img\carousel\9.jpg" />
+    <Content Include="img\carousel\escola-eco-aprender-1.jpg" />
+    <Content Include="img\drag.png" />
+    <Content Include="img\escola-de-educacao-infantil-e-bercario-eco-aprender.gif" />
+    <Content Include="img\escola\1\bercario-header.jpg" />
+    <Content Include="img\escola\1\bercario-icone.jpg" />
+    <Content Include="img\escola\1\bercario-icone.png" />
+    <Content Include="img\escola\1\bercario-resumo.jpg" />
+    <Content Include="img\escola\1\grupo1-header.jpg" />
+    <Content Include="img\escola\1\grupo1-icone.jpg" />
+    <Content Include="img\escola\1\grupo1-resumo.jpg" />
+    <Content Include="img\escola\1\grupo2-header.jpg" />
+    <Content Include="img\escola\1\grupo2-icone.jpg" />
+    <Content Include="img\escola\1\grupo2-resumo.jpg" />
+    <Content Include="img\escola\1\grupo3-header.jpg" />
+    <Content Include="img\escola\1\grupo3-icone.jpg" />
+    <Content Include="img\escola\1\grupo3-resumo.jpg" />
+    <Content Include="img\escola\1\grupo4-header.jpg" />
+    <Content Include="img\escola\1\grupo4-icone.jpg" />
+    <Content Include="img\escola\1\grupo4-resumo.jpg" />
+    <Content Include="img\escola\1\grupo5-header.jpg" />
+    <Content Include="img\escola\1\grupo5-icone.jpg" />
+    <Content Include="img\escola\1\grupo5-resumo.jpg" />
+    <Content Include="img\facebook.jpg" />
+    <Content Include="img\facebook.png" />
+    <Content Include="img\fale-conosco\fale-conosco-header.jpg" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\fotos\22281919_865618503615362_3392923934021714246_n.jpg" />
+    <Content Include="img\fotos\22309046_865615243615688_5001888716710598461_n.jpg" />
+    <Content Include="img\fotos\22339211_865624386948107_1863702129777069346_o.jpg" />
+    <Content Include="img\fotos\22448305_865618480282031_2848715315431984760_n.jpg" />
+    <Content Include="img\fotos\47480441_1149587425218467_8491772096542670848_o.jpg" />
+    <Content Include="img\fotos\48385294_1149738261870050_6416540394145710080_o.jpg" />
+    <Content Include="img\fotos\57251218_1234431300067412_417523318556459008_o.jpg" />
+    <Content Include="img\fotos\57258146_1234431966734012_533288449713635328_o.jpg" />
+    <Content Include="img\fotos\58019538_1234431243400751_1383884779698520064_o.jpg" />
+    <Content Include="img\fotos\64640220_1280484582128750_8346294231307911168_o.jpg" />
+    <Content Include="img\fotos\64802615_1280484895462052_6811666944312213504_o.jpg" />
+    <Content Include="img\fotos\67343748_1307376802772861_2830011598385446912_o.jpg" />
+    <Content Include="img\fotos\67397403_1307340552776486_3227648337893130240_o.jpg" />
+    <Content Include="img\fotos\67405435_1310329622477579_8211514038685794304_o.jpg" />
+    <Content Include="img\fotos\cortar embaixo.jpg" />
+    <Content Include="img\header-blog.jpg" />
+    <Content Include="img\header-videos.jpg" />
+    <Content Include="img\home\aluno-estudando-header.jpg" />
+    <Content Include="img\home\matriculas-abertas.jpg" />
+    <Content Include="img\home\rematricula.jpg" />
+    <Content Include="img\IMG-20170207-WA0001.jpg" />
+    <Content Include="img\IMG-20170207-WA0002.jpg" />
+    <Content Include="img\instagram.jpg" />
+    <Content Include="img\instagram.png" />
+    <Content Include="img\lapis.gif" />
+    <Content Include="img\lapis.png" />
+    <Content Include="img\lightbox\lightbox-blank.gif" />
+    <Content Include="img\lightbox\lightbox-btn-close.gif" />
+    <Content Include="img\lightbox\lightbox-btn-next.gif" />
+    <Content Include="img\lightbox\lightbox-btn-prev.gif" />
+    <Content Include="img\lightbox\lightbox-ico-loading.gif" />
+    <Content Include="img\logo-eco-aprender-grande.jpg" />
+    <Content Include="img\logo-eco-aprender-old.jpg" />
+    <Content Include="img\logo-eco-aprender-para-google.png" />
+    <Content Include="img\logo-eco-aprender.jpg" />
+    <Content Include="img\logo-eco-aprender.png" />
+    <Content Include="img\portal-do-aluno\portal-do-aluno-header.jpg" />
+    <Content Include="img\portal-do-aluno\reuniao-pais-2018.jpg" />
+    <Content Include="img\professor.jpg" />
+    <Content Include="img\professores\professores-da-escola-eco-aprender-1.jpg" />
+    <Content Include="img\professores\professores-da-escola-eco-aprender-2.jpg" />
+    <Content Include="img\professores\professores-da-escola-eco-aprender-3.jpg" />
+    <Content Include="img\professores\professores-da-escola-eco-aprender-4.jpg" />
+    <Content Include="img\professores\professores-da-escola-eco-aprender-5.jpg" />
+    <Content Include="img\professores\professores-da-escola-eco-aprender-6.jpg" />
+    <Content Include="img\professores\professores-header.jpg" />
+    <Content Include="img\programa-bilingue.jpg" />
+    <Content Include="img\programa-bilingue\escola-eco-aprender-1-600.jpg" />
+    <Content Include="img\programa-bilingue\escola-eco-aprender-39-600.jpg" />
+    <Content Include="img\sobre-a-escola-eco-aprender.jpg" />
+    <Content Include="img\sobre\eco-aprender-header-antiga %282%29.jpg" />
+    <Content Include="img\sobre\eco-aprender-header-antiga %283%29.jpg" />
+    <Content Include="img\sobre\eco-aprender-header-antiga %284%29.jpg" />
+    <Content Include="img\sobre\eco-aprender-header-antiga %285%29.jpg" />
+    <Content Include="img\sobre\eco-aprender-header-antiga %286%29.jpg" />
+    <Content Include="img\sobre\eco-aprender-header.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-10-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-11-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-12-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-13-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-14-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-15-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-16-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-17-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-18-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-19-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-2-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-20-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-21-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-22-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-23-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-24-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-25-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-26-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-27-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-28-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-29-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-3-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-30-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-31-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-32-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-33-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-34-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-35-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-36-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-37-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-38-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-4-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-40-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-41-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-42-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-43-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-44-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-45-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-5-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-6-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-7-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-8-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-9-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-aguaplay-1-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-aguaplay-2-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-brinquedoteca-2-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-brinquedoteca-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-entrada-1-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-entrada-2-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-entrada-3-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-rede-1-600.jpg" />
+    <Content Include="img\sobre\escola-eco-aprender-rede-2-600.jpg" />
+    <Content Include="img\sprite-redes-sociais.png" />
+    <Content Include="img\sprites_detalhes-anuncio.png" />
+    <Content Include="Global.asax" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\admin-atividade.js" />
+    <Content Include="Scripts\formComponent.js" />
+    <Content Include="Scripts\admin-video.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\cardapio\cardapio-bercario.pdf" />
+    <Content Include="Content\cardapio\cardapio-grupos.pdf" />
+    <Content Include="Content\cardapio\cardapio-lanches.pdf" />
+    <Content Include="Content\projeto-bilingue\apresentacao-2-ways-projeto-bilingue.pptx" />
+    <Content Include="img\home\Web.config" />
+    <Content Include="img\blog\Web.config" />
+    <Content Include="Content\projeto-bilingue\Web.config" />
+    <Content Include="Content\css\Web.config" />
+    <None Include="Properties\PublishProfiles\escolaecoaprender %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\escolaecoaprender.pubxml" />
+    <Content Include="Scripts\admin-comunicado-cadastrar.js" />
+    <Content Include="Scripts\admin-comunicado.js" />
+    <Content Include="Scripts\core\bootstrap.min.js" />
+    <Content Include="Scripts\core\jquery.appear.min.js" />
+    <Content Include="Scripts\core\jquery.countTo.min.js" />
+    <Content Include="Scripts\core\jquery.fileupload.js" />
+    <Content Include="Scripts\core\jquery.iframe-transport.js" />
+    <Content Include="Scripts\core\jquery.min.js" />
+    <Content Include="Scripts\core\jquery.placeholder.min.js" />
+    <Content Include="Scripts\core\jquery.scrollLock.min.js" />
+    <Content Include="Scripts\core\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\core\jquery.ui.widget.js" />
+    <Content Include="Scripts\core\js.cookie.min.js" />
+    <Content Include="Scripts\uploadFiles.js" />
+    <Content Include="Scripts\video.js" />
+    <Content Include="Scripts\blog.js" />
+    <Content Include="Scripts\atividade.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\jquery.lightbox-0.5.min.js" />
+    <Content Include="Scripts\usuario-cadastrar.js" />
+    <Content Include="Scripts\usuario.js" />
+    <Content Include="Scripts\comunicado.js" />
+    <Content Include="Scripts\fale-conosco.js" />
+    <Content Include="Scripts\layout.js" />
+    <Content Include="Scripts\portal-do-aluno.js" />
+    <Content Include="Scripts\slideout.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\PortalDoAluno\Index.cshtml" />
+    <Content Include="Views\PortalDoAluno\Painel.cshtml" />
+    <Content Include="Views\Site\Atividade.cshtml" />
+    <Content Include="Views\Site\Atividades.cshtml" />
+    <Content Include="Views\Site\FaleConosco.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Site\Professor.cshtml" />
+    <Content Include="Views\Site\Sobre.cshtml" />
+    <Content Include="Views\Shared\_Atividade.cshtml" />
+    <Content Include="Views\Shared\_Comunicado.cshtml" />
+    <Content Include="Views\Shared\_Video.cshtml" />
+    <Content Include="Views\PortalDoAluno\Usuario.cshtml" />
+    <Content Include="Views\PortalDoAluno\UsuarioCadastrar.cshtml" />
+    <Content Include="Views\Shared\_Blog.cshtml" />
+    <Content Include="Views\Site\Blog.cshtml" />
+    <Content Include="Views\Shared\_RedesSociaisFollow.cshtml" />
+    <Content Include="Views\Site\BlogPorCategoria.cshtml" />
+    <Content Include="Views\Site\Videos.cshtml" />
+    <Content Include="Views\PortalDoAluno\Admin\Comunicado\Index.cshtml" />
+    <Content Include="Views\PortalDoAluno\Admin\Comunicado\Form.cshtml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\Porta80.pubxml" />
+    <Content Include="Views\PortalDoAluno\Admin\Atividade\Form.cshtml" />
+    <Content Include="Views\PortalDoAluno\Admin\Atividade\Index.cshtml" />
+    <Content Include="Views\PortalDoAluno\Admin\Video\Form.cshtml" />
+    <Content Include="Views\PortalDoAluno\Admin\Video\Index.cshtml" />
+    <Content Include="Views\Site\ProgramaBilingue.cshtml" />
+    <Content Include="Views\Site\AtividadesExtraCurriculares.cshtml" />
+    <Content Include="Views\Shared\_servicos.cshtml" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Views\Site\Instagram.cshtml" />
+    <Content Include="Views\Site\Facebook.cshtml" />
+    <Content Include="Views\Site\Fotos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{01161482-bfe1-4344-b5b9-ea1fc62d2cf7}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Email\Email.csproj">
+      <Project>{ae1271f5-93f4-475b-9b68-24700a02365c}</Project>
+      <Name>Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoC\IoC.csproj">
+      <Project>{f9c3e3bd-adbb-4c8a-a3f1-600385e30a9d}</Project>
+      <Name>IoC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31557</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:31557/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

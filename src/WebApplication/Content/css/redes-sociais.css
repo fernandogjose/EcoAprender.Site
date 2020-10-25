@@ -1,0 +1,115 @@
+﻿.redes-sociais-compartilhar {
+    width: 100%;
+    background-color: #efefef;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.redes-sociais {
+    padding-top: 35px;
+    padding-bottom: 30px;
+    background-color: #EBEBEB;
+    width: 100%;
+}
+
+    .redes-sociais ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+        .redes-sociais ul li {
+            display: inline;
+            width: 50%;
+            float: left;
+            text-align: center;
+            padding: 20px;
+        }
+
+    .redes-sociais a {
+        color: #808080;
+    }
+
+        .redes-sociais a:hover {
+            color: #242424;
+            text-decoration: none;
+        }
+
+            .redes-sociais a:hover > .icone {
+                -webkit-filter: initial;
+                filter: initial;
+            }
+
+    .redes-sociais .redesSociaisTitulo {
+        color: #242424;
+        font-size: 16px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .redes-sociais .icone {
+        background-repeat: no-repeat;
+        background-image: url('/img/sprite-redes-sociais.png');
+        background-position: center;
+        height: 60px;
+        -webkit-filter: grayscale();
+        filter: grayscale();
+        float: left;
+        width: 100%;
+    }
+
+    .redes-sociais p {
+        margin-top: 80px;
+    }
+
+    .redes-sociais .facebook {
+        background-position-y: 0px;
+    }
+
+    .redes-sociais .google {
+        background-position-y: -59px;
+    }
+
+    .redes-sociais .twitter {
+        background-position-y: -119px;
+    }
+
+    .redes-sociais .instagram {
+        background-position-y: -179px;
+    }
+
+    .redes-sociais .youtube {
+        background-position-y: -238px;
+    }
+
+    .redes-sociais .pinterest {
+        background-position-y: -298px;
+    }
+
+/* mobile */
+@media screen and (max-width:600px) {
+    .redes-sociais p {
+        font-size: 11px;
+    }
+
+    .redes-sociais .icone {
+        -webkit-filter: initial;
+        filter: initial;
+    }
+
+    .redes-sociais ul li {
+        display: inline;
+        width: 33.3%;
+        float: left;
+        text-align: center;
+    }
+}
+
+/* tablet */
+@media screen and (min-width:600px) and (max-width:992px) {
+
+    .redes-sociais .icone {
+        -webkit-filter: initial;
+        filter: initial;
+    }
+}

@@ -1,0 +1,60 @@
+﻿@{
+    var videos = ViewBag.Videos as List<Domain.Entities.Video>;
+}
+
+<section id="homeVideos">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Videos</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-8" itemscope itemtype="http://schema.org/VideoObject">
+                <meta itemprop="embedURL" content="http://www.youtube.com/watch?v=@videos[0].Embed" />
+                <meta itemprop="uploadDate" content="@videos[0].DataInclusao" />
+                <meta itemprop="thumbnailUrl" content="http://www.ecoaprender.com.br/img/header-videos.jpg" />
+                <span itemprop="name" class="hide">@videos[0].Titulo</span>
+                <span itemprop="description" class="hide">@videos[0].Descricao</span>
+                <iframe src="https://www.youtube.com/embed/@videos[0].Embed" frameborder="0" allowfullscreen class="player"></iframe>
+            </div>
+            <div class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/VideoObject">
+                <meta itemprop="embedURL" content="http://www.youtube.com/watch?v=@videos[1].Embed" />
+                <meta itemprop="uploadDate" content="@videos[1].DataInclusao" />
+                <meta itemprop="thumbnailUrl" content="http://www.ecoaprender.com.br/img/header-videos.jpg" />
+                <span itemprop="name" class="hide">@videos[1].Titulo</span>
+                <span itemprop="description" class="hide">@videos[1].Descricao</span>
+                <iframe src="https://www.youtube.com/embed/@videos[1].Embed" frameborder="0" allowfullscreen class="player"></iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-3" itemscope itemtype="http://schema.org/VideoObject">
+                <meta itemprop="embedURL" content="http://www.youtube.com/watch?v=@videos[2].Embed" />
+                <meta itemprop="uploadDate" content="@videos[2].DataInclusao" />
+                <meta itemprop="thumbnailUrl" content="http://www.ecoaprender.com.br/img/header-videos.jpg" />
+                <span itemprop="name" class="hide">@videos[2].Titulo</span>
+                <span itemprop="description" class="hide">@videos[2].Descricao</span>
+                <iframe src="https://www.youtube.com/embed/@videos[2].Embed" frameborder="0" allowfullscreen class="player"></iframe>
+            </div>
+
+            <div class="col-xs-12 col-md-6" itemscope itemtype="http://schema.org/VideoObject">
+                <meta itemprop="embedURL" content="http://www.youtube.com/watch?v=@videos[3].Embed" />
+                <meta itemprop="uploadDate" content="@videos[3].DataInclusao" />
+                <meta itemprop="thumbnailUrl" content="http://www.ecoaprender.com.br/img/header-videos.jpg" />
+                <span itemprop="name" class="hide">@videos[3].Titulo</span>
+                <span itemprop="description" class="hide">@videos[3].Descricao</span>
+                <iframe src="https://www.youtube.com/embed/@videos[3].Embed" frameborder="0" allowfullscreen class="player"></iframe>
+            </div>
+
+            <div class="col-xs-12 col-md-3" itemscope itemtype="http://schema.org/VideoObject">
+                <meta itemprop="embedURL" content="http://www.youtube.com/watch?v=@videos[4].Embed" />
+                <meta itemprop="uploadDate" content="@videos[4].DataInclusao" />
+                <meta itemprop="thumbnailUrl" content="http://www.ecoaprender.com.br/img/header-videos.jpg" />
+                <span itemprop="name" class="hide">@videos[4].Titulo</span>
+                <span itemprop="description" class="hide">@videos[4].Descricao</span>
+                <iframe src="https://www.youtube.com/embed/@videos[4].Embed" frameborder="0" allowfullscreen class="player"></iframe>
+            </div>
+        </div>
+    </div>
+</section>

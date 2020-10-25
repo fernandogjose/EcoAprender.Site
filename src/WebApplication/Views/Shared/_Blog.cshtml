@@ -1,0 +1,273 @@
+﻿@{
+    var blogs = ViewBag.Blogs as List<Domain.Entities.Blog>;
+}
+
+<section id="homeBlog">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Blog</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <article class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@blogs[0].DataInclusao" />
+                <meta itemprop="dateModified" content="@blogs[0].DataAlteracao" />
+                
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <a href="~/Blog/@blogs[0].Link" itemprop="url">
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="800">
+                        <img class="img-responsive img-thumbnail" alt="@blogs[0].Titulo" src="~/img/blog/@blogs[0].FotoResumo" itemprop="url" />
+                    </figure>
+                    <div class="col-xs-12">
+                        <header>
+                            <h3 class="titulo-completa" itemprop="name headline mainEntityOfPage">@blogs[0].Titulo</h3>
+                        </header>
+                        <div itemprop="description" class="resumo">
+                            @Html.Raw(blogs[0].Resumo)
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@blogs[1].DataInclusao" />
+                <meta itemprop="dateModified" content="@blogs[1].DataAlteracao" />
+
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <a href="~/Blog/@blogs[1].Link" itemprop="url">
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="800">
+                        <img class="img-responsive img-thumbnail" alt="@blogs[1].Titulo" src="~/img/blog/@blogs[1].FotoResumo" itemprop="url" />
+                    </figure>
+                    <div class="col-xs-12">
+                        <header>
+                            <h3 class="titulo-completa" itemprop="headline mainEntityOfPage">@blogs[1].Titulo</h3>
+                        </header>
+                        <div itemprop="description" class="resumo">
+                            @Html.Raw(blogs[1].Resumo)
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@blogs[2].DataInclusao" />
+                <meta itemprop="dateModified" content="@blogs[2].DataAlteracao" />
+
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <a href="~/Blog/@blogs[2].Link" itemprop="url">
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="800">
+                        <img class="img-responsive img-thumbnail" alt="@blogs[2].Titulo" src="~/img/blog/@blogs[2].FotoResumo" itemprop="url" />
+                    </figure>
+                    <div class="col-xs-12">
+                        <header>
+                            <h3 class="titulo-completa" itemprop="headline mainEntityOfPage">@blogs[2].Titulo</h3>
+                        </header>
+                        <div itemprop="description" class="resumo">
+                            @Html.Raw(blogs[2].Resumo)
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+
+        <div class="row">
+            <article class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@blogs[3].DataInclusao" />
+                <meta itemprop="dateModified" content="@blogs[3].DataAlteracao" />
+
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <a href="~/Blog/@blogs[3].Link" itemprop="url">
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="800">
+                        <img class="img-responsive img-thumbnail" alt="@blogs[3].Titulo" src="~/img/blog/@blogs[3].FotoResumo" itemprop="url" />
+                    </figure>
+                    <div class="col-xs-12">
+                        <header>
+                            <h3 class="titulo-completa" itemprop="headline mainEntityOfPage">@blogs[3].Titulo</h3>
+                        </header>
+                        <div itemprop="description" class="resumo">
+                            @Html.Raw(blogs[3].Resumo)
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@blogs[4].DataInclusao" />
+                <meta itemprop="dateModified" content="@blogs[4].DataAlteracao" />
+
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <a href="~/Blog/@blogs[4].Link" itemprop="url">
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="800">
+                        <img class="img-responsive img-thumbnail" alt="@blogs[4].Titulo" src="~/img/blog/@blogs[4].FotoResumo" itemprop="url" />
+                    </figure>
+                    <div class="col-xs-12">
+                        <header>
+                            <h3 class="titulo-completa" itemprop="headline mainEntityOfPage">@blogs[4].Titulo</h3>
+                        </header>
+                        <div itemprop="description" class="resumo">
+                            @Html.Raw(blogs[4].Resumo)
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-xs-12 col-md-4" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@blogs[5].DataInclusao" />
+                <meta itemprop="dateModified" content="@blogs[5].DataAlteracao" />
+
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <a href="~/Blog/@blogs[5].Link" itemprop="url">
+                    <figure class="col-xs-12" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="width" content="800">
+                        <meta itemprop="height" content="800">
+                        <img class="img-responsive img-thumbnail" alt="@blogs[5].Titulo" src="~/img/blog/@blogs[5].FotoResumo" itemprop="url" />
+                    </figure>
+                    <div class="col-xs-12">
+                        <header>
+                            <h3 class="titulo-completa" itemprop="headline mainEntityOfPage">@blogs[5].Titulo</h3>
+                        </header>
+                        <div itemprop="description" class="resumo">
+                            @Html.Raw(blogs[5].Resumo)
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+
+
+@*<section id="blog-view" class="blog">
+        <div class="container body-content">
+            <div class="row" itemscope itemtype="http://schema.org/Blog">
+                <section id="blog-resumo" class="col-xs-12 col-md-4">
+                    @if (ViewBag.BlogTitulo != null)
+                    {
+                        <header>
+                            <h2>@ViewBag.BlogTitulo</h2>
+                        </header>
+                    }
+                    else
+                    {
+                        <header><h2>BLOG DA ESCOLA</h2></header>
+                    }
+
+                    @foreach (var blog in ViewBag.Blogs)
+                    {
+                        <section id="item" class="row" onclick="blog.alterarMateria('@blog.Link');">
+                            <div class="col-xs-3 data">
+                                <small itemprop="datePublished">@blog.Data.ToString("dd/MM/yyyy")</small>
+                            </div>
+                            <div class="col-xs-8 titulo" itemprop="name">
+                                @blog.Titulo
+                            </div>
+                        </section>
+
+                        <div class="row box">
+                        </div>
+                    }
+                </section>
+
+                <article id="blog-completa" class="col-xs-12 col-md-8 completa">
+                    @{
+                        var style = "";
+                        foreach (var blog in ViewBag.Blogs)
+                        {
+                            <div class="row @style @blog.Link materiaCompleta">
+                                <figure class="col-xs-12 col-sm-7">
+                                    <img class="img-responsive img-thumbnail" alt="@blog.Titulo" src="~/img/blog/@blog.FotoResumo" itemprop="image" />
+                                </figure>
+                                <div class="col-xs-12 col-sm-5">
+                                    <header><h2 class="titulo-completa" itemprop="name">@blog.Titulo</h2></header>
+                                    <div itemprop="description">
+                                        @Html.Raw(blog.Resumo)
+                                    </div>
+                                    <a href="~/Blog/@blog.Link" itemprop="url" class="btn btn-saiba-mais-orange">VEJA MAIS</a>
+                                    <a href="~/Blog/@blog.Link" itemprop="url" class="btn btn-saiba-mais-orange-seta" rel="nofollow">></a>
+                                </div>
+                            </div>
+
+                            style = "hide";
+                        }
+                    }
+
+                    <div class="row box">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>*@

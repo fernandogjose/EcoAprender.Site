@@ -1,0 +1,121 @@
+﻿.img-capa{
+    max-height: 300px;
+}
+
+.atividades-recentes {
+    background-color: #fff;
+    width: 100%;
+}
+
+    .atividades-recentes .link-grupos {
+        float: left !important;
+    }
+
+    .atividades-recentes .link-grupos-date {
+        float: right !important;
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    .atividades-recentes .linha {
+        border-bottom: 1px dotted #C0C0C0;
+    }
+
+        .atividades-recentes .linha .item {
+            border-right: 1px dotted #C0C0C0;
+            height: 190px;
+            padding-top: 25px;
+        }
+
+            .atividades-recentes .linha .item.item-sem-borda {
+                border-right: 0;
+            }
+
+        .atividades-recentes .linha h2 {
+            font-size: 16px;
+            color: #333;
+            height: 26px;
+        }
+
+        .atividades-recentes .linha h3 {
+            font-size: 15px;
+            min-height: 60px;
+            text-align: center;
+        }
+
+            .atividades-recentes .linha h3 a {
+                color: #333;
+                width: 100%;
+            }
+
+                .atividades-recentes .linha h3 a:hover {
+                    color: #666;
+                    text-decoration: none;
+                }
+
+        .atividades-recentes .linha a {
+            float: right;
+        }
+
+.atividade-completa-image-thumb {
+    width: 60px !important;
+    height: 60px;
+}
+
+
+/* mobile */
+@media screen and (max-width:600px) {
+    .atividades-recentes .linha .item.item-mobile {
+        border-bottom: 1px dotted #C0C0C0;
+    }
+
+    .atividades-recentes .linha .item-mobile-sem-borda-direita {
+        border-right: 0;
+    }
+
+    .atividades-img-desktop {
+        display: none;
+    }
+
+    .atividades-img-mobile {
+        display: block;
+    }
+}
+
+/* tablet */
+@media screen and (min-width:600px) and (max-width:992px) {
+    .atividades-recentes .linha .item.item-mobile {
+        border-bottom: 1px dotted #C0C0C0;
+    }
+
+    .atividades-recentes .linha .item-mobile-sem-borda-direita {
+        border-right: 0;
+    }
+
+    .atividades-img-desktop {
+        display: none;
+    }
+
+    .atividades-img-mobile {
+        display: block;
+    }
+}
+
+/* desktop */
+@media screen and (min-width:992px) {
+    .imagem-primeira-lado-direito {
+        /*margin-top: -28px;*/
+    }
+
+    .atividades-img-desktop {
+        display: block;
+    }
+
+    .atividades-img-mobile {
+        display: none;
+    }
+}
+
+.foto-resumo{
+    max-height: 310px;
+}

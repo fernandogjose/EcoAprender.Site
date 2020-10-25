@@ -1,0 +1,35 @@
+﻿@{
+    var comunicados = ViewBag.Comunicados;
+}
+
+<div class="col-sm-12">
+    <table class="table table-hover table-data" id="comunicados">
+        <thead>
+            <tr>
+                <th colspan="3"><strong>Comunicados</strong></th>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <th>Titulo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (comunicados != null)
+            {
+                foreach (var comunicado in comunicados)
+                {
+                    <tr>
+                        <td>@comunicado.Data.ToString("dd/MM/yyyy")</td>
+                        <td>@comunicado.Titulo</td>
+                        <td class="text-right col-sm-2">
+                            <button class="btn btn-warning exibir-comunicado" data-titulo="@comunicado.Titulo" data-descricao="@comunicado.Descricao">Ler</button>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

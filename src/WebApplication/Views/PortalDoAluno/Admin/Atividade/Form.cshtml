@@ -1,0 +1,177 @@
+﻿@model Domain.Entities.Atividade
+
+@{
+    ViewBag.Title = "Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender";
+    ViewBag.MetaDescription = "No portal do aluno da Escola Eco Aprender, os pais e alunos da escola tem acesso ao conteúdo programático, atividades e ao cardápio.";
+}
+
+@section css{
+    <link href="//hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
+}
+
+<input type="text" id="isAdmin" value="true" class="hide" />
+
+<div class="home-frase alpha60 titulo-desktop">
+    <h2 class="texto-branco">ATIVIDADE</h2>
+</div>
+<img src="/img/portal-do-aluno/portal-do-aluno-header.jpg" class="img-responsive img-principal" title="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" alt="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" />
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Painel" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Admin/Atividade" title="Atividade">Atividades</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pagina-interna">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+            <h2>Cadastro de <strong>Atividade</strong></h2>
+
+            <form class="form-horizontal" id="form" name="form" method="post" action="@Url.Action("salvar", "portal-do-aluno/admin/atividade")" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Nome" class="col-xs-2 control-label"></label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Id, new { @class = "hide", @id = "Id" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Data</label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Data, new { @class = "form-control datepicker", @Value = Model.Data.ToString("dd/MM/yyyy") })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Grupo</label>
+                    <div class="col-xs-5">
+                        @Html.DropDownListFor(x => x.GrupoId, new SelectList(Model.Grupos, "Id", "Descricao"), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Login" class="col-xs-2 control-label">Titulo</label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Senha" class="col-xs-2 control-label">Descrição</label>
+                    <div class="col-xs-5">
+                        @Html.TextAreaFor(x => x.CompletaApp, new { @class = "form-control", @rows = 10, @id = "Completa" })
+                    </div>
+                </div>
+
+                <div class="form-group upload-fotos">
+                    <label for="Senha" class="col-xs-2 control-label">Selecione as Fotos</label>
+                    <div class="col-xs-10">
+                        <span class="btn btn-success fileinput-button col-xs-12">
+                            <input id="fileupload" type="file" name="files[]" multiple>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group upload-fotos">
+                    <label class="col-xs-2 control-label">Fotos Selecionadas</label>
+                    <div class="col-xs-10">
+                        <table id="fotos" class="table-responsive col-xs-12">
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Capa</th>
+                                    <th>Resumo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Fotos != null && Model.Fotos.Any())
+                                {
+                                    foreach (var foto in Model.Fotos)
+                                    {
+                                        <tr>
+                                            <td class="td-foto-anuncio">
+                                                <img class="img-responsive img-thumbnail" style="max-width: 200px" src="/img/atividades/@Model.Id/@foto" />
+                                            </td>
+                                            <td class="td-foto-anuncio capa">
+                                                @if (Model.FotoCapa == foto)
+                                                {
+                                                    <text>sim</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>não</text>
+                                                }
+                                            </td>
+                                            <td class="td-foto-anuncio resumo">
+                                                @if (Model.FotoResumo == foto)
+                                                {
+                                                    <text>sim</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>não</text>
+                                                }
+                                            </td>
+                                            <td class="td-foto-anuncio">
+                                                <button class="btn btn-danger" type="button" onclick="uploadFiles.removerFoto(this)" rel="@foto" data-id="@Model.Id">Remover</button>
+                                                <button class="btn btn-warning" type="button" onclick="uploadFiles.selecionarFotoCapa(this)" rel="@foto" data-id="@Model.Id">Selecionar Foto Capa</button>
+                                                <button class="btn btn-success" type="button" onclick="uploadFiles.selecionarFotoResumo(this)" rel="@foto" data-id="@Model.Id">Selecionar Foto Resumo</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr><td></td><td></td><td></td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <button type="submit" class="btn btn-primary btn-salvar" id="salvar">Salvar</button>
+                        <a href="/portal-do-aluno/admin/atividade" type="button" class="btn btn-warning">Voltar</a>
+                    </div>
+                </div>
+
+                <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide" id="mensagemDeErro">
+
+                </p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Painel" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Admin/Atividade" title="Atividade">Atividades</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="actionPainel" value="@Url.Action("Painel", "PortalDoAluno")" />
+
+@section scripts{
+    @Scripts.Render("~/bundles/adminAtividadeCadastrar")
+}

@@ -1,0 +1,26 @@
+﻿label {
+    display: block;
+}
+
+    label.error {
+        float: none;
+        color: red;
+        margin: 0 .5em 0 0;
+        vertical-align: top;
+        font-size: 10px;
+        text-align: right;
+    }
+
+p {
+    clear: both;
+}
+
+.submit {
+    margin-top: 1em;
+}
+
+em {
+    font-weight: bold;
+    padding-right: 1em;
+    vertical-align: top;
+}

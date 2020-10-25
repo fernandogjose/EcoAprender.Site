@@ -1,0 +1,75 @@
+﻿#homeVideos {
+    margin-bottom: 50px;
+}
+
+    #homeVideos h2, #homeVideos h3 {
+        font-size: 25px;
+        font-family: 'Fugaz One', cursive;
+        color: #1a95be;
+    }
+
+    #homeVideos iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+.videos {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    background-color: #F9F9F9;
+}
+
+    .videos .completa {
+        margin-top: 31px;
+    }
+
+    .videos .data {
+        color: #9c999c;
+        float: left;
+        font-size: 13px;
+        text-transform: uppercase;
+        background: #cccccc;
+        padding-top: 21px;
+        -moz-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        min-height: 68px;
+        margin-left: 16px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .videos .data:hover {
+            color: #fff;
+            background: #9c999c;
+        }
+
+    .videos .box {
+        margin-bottom: 10px;
+        margin-left: 4px;
+        width: 80%;
+    }
+
+    .videos .titulo {
+        font-size: 13px;
+        text-align: justify;
+        background-color: #fff;
+        padding-top: 5px;
+        cursor: pointer;
+        min-height: 70px;
+    }
+
+        .videos .titulo:hover {
+            background-color: #efefef;
+        }
+
+    .videos .player {
+        border: 2px solid #000;
+        border-radius: 4px;
+        width: 100%;
+        height: 315px;
+    }

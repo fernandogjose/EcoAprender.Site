@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender";
+    ViewBag.MetaDescription = "No portal do aluno da Escola Eco Aprender, os pais e alunos da escola tem acesso ao conteúdo programático, comunicados e ao cardápio.";
+
+    var usuarioNome = Session["UsuarioNome"] != null ? Session["UsuarioNome"].ToString().ToUpper() : "";
+    var usuarioFoto = Session["UsuarioFoto"] != null && !string.IsNullOrEmpty(Session["UsuarioFoto"].ToString()) ? Session["UsuarioFoto"].ToString().ToUpper() : "logo-eco-aprender.jpg";
+}
+
+<input type="text" id="isAdmin" value="true" class="hide" />
+
+<div class="home-frase header-portal-do-aluno titulo-desktop">
+    <h2 class="texto-branco">@usuarioNome BEM VINDO AO PORTAL DO ALUNO DA ESCOLA <strong>ECO APRENDER</strong></h2>
+</div>
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Painel" title="Painel">Painel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container portal-do-aluno">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-7">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <p style="font-weight: bold">Reunião de Pais</p>
+                    <p>
+                        <img alt="Reunião de Pais" title="Reunião de Pais" src="~/img/portal-do-aluno/reuniao-pais-2018.jpg" class="img img-responsive" />
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <p style="font-weight: bold">Sobre a parceria da Escola Eco Aprender com a 2 Ways e detalhes do brograma bilíngue</p>
+                    <ul>
+                        <li><a href="~/Content/projeto-bilingue/apresentacao-2-ways-projeto-bilingue.pptx">Fazer o download do material usado na apresentação (PowerPoint)</a></li>
+                        <li>
+                            Vídeos da apresentação
+
+                            <ul>
+                                <li><a href="https://youtu.be/5SBHx4gbLgU" target="_blank">Parte 1</a></li>
+                                <li><a href="https://youtu.be/xCaOeFgd2d8" target="_blank">Parte 2</a></li>
+                                <li><a href="https://youtu.be/eBXR6_L1_-E" target="_blank">Parte 3</a></li>
+                                <li><a href="https://youtu.be/rKvikQYachs" target="_blank">Parte 4</a></li>
+                                <li><a href="https://youtu.be/M-G3VWmQMZY" target="_blank">Parte 5</a></li>
+                                <li><a href="https://youtu.be/BwsW8GEvE9E" target="_blank">Parte 6</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row margin-top-60">
+                <div class="col-xs-12">
+                    @Html.Partial("_Comunicado")
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 margin-top-60">
+                    <p><strong>Cardápio - </strong>Acompanhe o que nossos pequenos estão comendo, clique no link abaixo para abrir o cardápio da turma desejada.</p>
+                </div>
+            </div>
+
+            <div class="row margin-top-30">
+                <div class="col-xs-3 cardapio">
+                    <a href="/Content/Cardapio/cardapio-bercario.pdf" target="_blank">
+                        <img src="~/img/cardapio-bercario.jpg" class="img-responsive img-circle" alt="Berçário" title="Berçário" />
+                    </a>
+                </div>
+                <div class="col-xs-3 cardapio">
+                    <a href="/Content/Cardapio/cardapio-grupo-1.pdf" target="_blank">
+                        <img src="~/img/cardapio-grupo-1.jpg" class="img-responsive img-circle" alt="Grupo 1" title="Grupo 1" />
+                    </a>
+                </div>
+                <div class="col-xs-3 cardapio">
+                    <a href="/Content/Cardapio/cardapio-grupos.pdf" target="_blank">
+                        <img src="~/img/cardapio-grupo-2.jpg" class="img-responsive img-circle" alt="Grupo 2" title="Grupo 2" />
+                    </a>
+                </div>
+                <div class="col-xs-3 cardapio">
+                    <a href="/Content/Cardapio/cardapio-grupos.pdf" target="_blank">
+                        <img src="~/img/cardapio-grupo-345.jpg" class="img-responsive img-circle" alt="Grupo 3, 4 e 5" title="Grupo 3, 4 e 5" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-1 col-linha-vertical">
+            &nbsp;
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="~/img/@usuarioFoto" class="img-responsive foto-capa" alt="@usuarioNome" title="@usuarioNome" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Painel" title="Painel">Painel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/comunicado")
+    @Scripts.Render("~/bundles/bootbox")
+}

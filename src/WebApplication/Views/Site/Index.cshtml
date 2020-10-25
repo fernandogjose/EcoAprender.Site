@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Escola de Educação Infantil e Berçário no Tatuapé - Anália Franco";
+    ViewBag.MetaDescription = "A Escola Eco Aprender no Tatuapé (Anália Franco), oferece berçário e educação infantil. A melhor escola de educação infantil da zona leste";
+}
+
+@section Head{
+    <link rel="canonical" href="http://www.ecoaprender.com.br" />
+
+    <meta name="twitter:card" content="Escola de Educação Infantil e Berçário no Tatuapé - Anália Franco" />
+    <meta name="twitter:site" content="@string.Format("@EcoAprender")" />
+    <meta name="twitter:title" content="Escola de Educação Infantil e Berçário no Tatuapé - Anália Franco" />
+    <meta name="twitter:description" content="A Escola Eco Aprender no Tatuapé (Anália Franco), oferece berçário e educação infantil. A melhor escola de educação infantil da zona leste" />
+    <meta name="twitter:image" content="http://www.ecoaprender.com.br/img/logo-eco-aprender.jpg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="@Request.Url.AbsoluteUri">
+    <meta property="og:title" content="Escola de Educação Infantil e Berçário no Tatuapé - Anália Franco">
+    <meta property="og:site_name" content="Escola Eco Aprender">
+    <meta property="og:description" content="A Escola Eco Aprender no Tatuapé (Anália Franco), oferece berçário e educação infantil. A melhor escola de educação infantil da zona leste">
+    <meta property="og:image" content="http://www.ecoaprender.com.br/img/logo-eco-aprender.jpg">
+    <meta property="og:image:url" content="http://www.ecoaprender.com.br/img/logo-eco-aprender.jpg">
+}
+
+@* Carousel Bootstrap Photos *@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active"><img src="~/img/carousel/escola-eco-aprender-5.jpg" alt="Escola de Educação Infantil e Berçário Eco Aprender"></div>
+        <div class="item"><img src="~/img/carousel/escola-eco-aprender-1.jpg" alt="Escola de Educação Infantil e Berçário Eco Aprender"></div>
+        <div class="item"><img src="~/img/carousel/escola-eco-aprender-2.jpg" alt="Escola de Educação Infantil e Berçário Eco Aprender"></div>
+        <div class="item"><img src="~/img/carousel/escola-eco-aprender-3.jpg" alt="Escola de Educação Infantil e Berçário Eco Aprender"></div>
+        <div class="item"><img src="~/img/carousel/escola-eco-aprender-4.jpg" alt="Escola de Educação Infantil e Berçário Eco Aprender"></div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+@Html.Partial("_servicos")
+
+@Html.Partial("_Video")
+
+<section id="informacao-da-escola" class="div-informativo">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <img src="/img/lapis.gif" alt="Matrículas Abertas 2021" class="img-responsive" />
+            </div>
+
+            <div class="col-xs-12 col-md-8">
+                <h2>MATRÍCULAS ABERTAS 2021</h2>
+                <h3><strong>Educação Infantil e Berçário</strong></h3>
+                <p>
+                    @if (ViewBag.Cached == "esta com cache")
+                    {
+                        @Html.Raw("<strong>Nossa proposta</strong> visa proporcionar aos <strong>alunos</strong> um <strong>aprendizado</strong> sólido, com o qual eles aprendam a <strong>desenvolver</strong> a criatividade, a imaginação, o respeito ao próximo, a confiança e o <strong>amor</strong>, formando, assim, <strong>adultos felizes, questionadores e atuantes na sociedade.</strong>");
+                    }
+                    else
+                    {
+                        @Html.Raw("Nossa proposta visa proporcionar aos <strong>alunos</strong> um <strong>aprendizado</strong> sólido, com o qual eles aprendam a <strong>desenvolver</strong> a criatividade, a imaginação, o respeito ao próximo, a confiança e o <strong>amor</strong>, formando, assim, <strong>adultos felizes, questionadores e atuantes na sociedade.</strong>");
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Partial("_Blog")
+
+@section scripts{
+    @Scripts.Render("~/bundles/home")
+
+    @*<script>
+            $('#myModal').modal('show')
+        </script>*@
+}

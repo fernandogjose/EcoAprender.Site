@@ -1,0 +1,117 @@
+﻿@model Domain.Entities.Video
+
+@{
+    ViewBag.Title = "Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender";
+    ViewBag.MetaDescription = "No portal do aluno da Escola Eco Aprender, os pais e alunos da escola tem acesso ao conteúdo programático, videos e ao cardápio.";
+}
+
+@section css{
+    <link href="//hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
+}
+
+<input type="text" id="isAdmin" value="true" class="hide" />
+
+<div class="home-frase alpha60 titulo-desktop">
+    <h2 class="texto-branco">VIDEOS</h2>
+</div>
+<img src="/img/portal-do-aluno/portal-do-aluno-header.jpg" class="img-responsive img-principal" title="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" alt="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" />
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Painel" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Admin/Videos" title="Videos">Videoss</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pagina-interna">
+
+    <div class="row">
+
+        <div class="col-xs-12">
+            <h2>Cadastro de <strong>Videos</strong></h2>
+
+            <form class="form-horizontal" id="form" name="form" method="post" action="@Url.Action("salvar", "portal-do-aluno/admin/video")" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="Nome" class="col-xs-2 control-label"></label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Id, new { @class = "hide" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Data</label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Data, new { @class = "form-control datepicker", @Value = Model.Data.ToString("dd/MM/yyyy") })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Grupo</label>
+                    <div class="col-xs-5">
+                        @Html.DropDownListFor(x => x.Grupo, new SelectList(Model.Grupos, "Descricao", "Descricao"), new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Login" class="col-xs-2 control-label">Titulo</label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Login" class="col-xs-2 control-label">Descrição</label>
+                    <div class="col-xs-5">
+                        @Html.TextAreaFor(x => x.Descricao, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">Embed</label>
+                    <div class="col-xs-5">
+                        @Html.TextBoxFor(x => x.Embed, new { @class = "form-control datepicker" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <button type="submit" class="btn btn-primary btn-salvar" id="salvar">Salvar</button>
+                        <a href="/portal-do-aluno/admin/video" type="button" class="btn btn-warning">Voltar</a>
+                    </div>
+                </div>
+
+                <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide" id="mensagemDeErro">
+
+                </p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Painel" title="Portal do Aluno">Portal do Aluno</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno/Admin/Videos" title="Videos">Videoss</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="actionPainel" value="@Url.Action("Painel", "PortalDoAluno")" />
+
+@section scripts{
+    @Scripts.Render("~/bundles/adminVideosCadastrar")
+}

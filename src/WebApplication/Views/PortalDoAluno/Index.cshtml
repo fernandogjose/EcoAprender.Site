@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender";
+    ViewBag.MetaDescription = "No portal do aluno da Escola Eco Aprender, os pais e alunos da escola tem acesso ao conteúdo programático, comunicados e ao cardápio.";
+}
+
+<img src="/img/portal-do-aluno/portal-do-aluno-header.jpg" class="img-responsive img-principal" title="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" alt="Portal do Aluno da Escola de Educação Infantil e Berçário Eco Aprender" />
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno" title="Portal do Aluno">Portal do Aluno</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pagina-interna">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6">
+            <h2>Login para acessar o <strong>Portal do Aluno</strong></h2>
+
+            <form class="form-horizontal" id="form" name="form" method="get" action="@Url.Action("Login", "Portal-Do-Aluno")">
+                <div class="form-group">
+                    <label for="Login" class="col-xs-2 control-label">Login</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" name="login" id="login" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Senha" class="col-xs-2 control-label">Senha</label>
+                    <div class="col-xs-10">
+                        <input type="password" class="form-control" name="senha" id="senha" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <button type="submit" class="btn btn-primary btn-salvar" id="entrar">Entrar</button>
+                    </div>
+                </div>
+
+                <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide" id="mensagemDeErro">
+                    Usuário ou Senha não encontrado!
+                </p>
+            </form>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <h2>Tenha <strong>acesso ao conteúdo completo</strong> que inclui:</h2>
+            <p class="texto-escuro">
+                <ul>
+                    <li><h3>Comunicados;</h3></li>
+                    <li><h3>Conteúdo Programático;</h3></li>
+                    <li><h3>Cardápio elaborado pela nossa nutricionista.</h3></li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="div-veja-mais MarginTop30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="/Portal-Do-Aluno" title="Portal do Aluno">Portal do Aluno</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="actionPainel" value="@Url.Action("Painel", "PortalDoAluno")" />
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    @Scripts.Render("~/bundles/portal-do-aluno")
+}

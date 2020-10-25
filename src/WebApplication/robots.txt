@@ -1,0 +1,4 @@
+﻿User-agent: *
+Disallow: /Portal-Do-Aluno/"
+
+Sitemap: http://www.ecoaprender.com.br/sitemap.xml

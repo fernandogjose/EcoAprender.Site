@@ -1,0 +1,205 @@
+﻿@model Domain.Entities.Blog
+
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.MetaDescription = Model.MetaDescription;
+    ViewBag.BlogTitulo = "VEJA TAMBÉM";
+}
+
+@section Head{
+    <meta name="twitter:card" content="@Model.MetaTitle" />
+    <meta name="twitter:site" content="@string.Format("@EcoAprender")" />
+    <meta name="twitter:title" content="@Model.MetaTitle" />
+    <meta name="twitter:description" content="@Model.MetaDescription" />
+    <meta name="twitter:image" content="http://www.ecoaprender.com.br/img/blog/@Model.FotoCapa" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="@Request.Url.AbsoluteUri">
+    <meta property="og:title" content="@Model.MetaTitle">
+    <meta property="og:site_name" content="Escola Eco Aprender">
+    <meta property="og:description" content="@Model.MetaDescription">
+    <meta property="og:image" content="http://www.ecoaprender.com.br/img/blog/@Model.FotoCapa">
+    <meta property="og:image:url" content="http://www.ecoaprender.com.br/img/blog/@Model.FotoResumo">
+}
+
+<section id="main">
+
+    <header>
+        <img src="~/img/blog/@Model.FotoCapa" class="img-responsive img-principal" alt="Escola de Educação Infantil e Berçário Eco Aprender" itemprop="image" />
+    </header>
+
+    <section id="navegacao-header" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a rel="nofollow" href="@Url.Action("index", "Site")" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="#" title="@Model.Titulo" itemprop="name">@Model.Titulo</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div class="row">
+        <div class="container pagina-interna">
+            <article id="blog" class="col-xs-12 col-md-8" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="keywords" content="Escola, Educação Infantil, Berçário, Tatuapé, @Model.Categoria" />
+                <meta itemprop="author" content="Fernando José" />
+                <meta itemprop="datePublished" content="@Model.DataInclusao" />
+                <meta itemprop="dateModified" content="@Model.DataAlteracao" />
+
+                <div class="hide" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                    <span itemprop="name">
+                        Escola de Educação Infantil e Berçário Eco Aprender
+                    </span>
+                    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <img itemprop="url" src="~/img/logo-eco-aprender.jpg" />
+                    </div>
+                </div>
+
+                <header><h2 class="texto-escuro titulo-mobile" itemprop="name headline mainEntityOfPage">@Model.Titulo</h2></header>
+                <div itemprop="description">@Html.Raw(Model.Completa)</div>
+            </article>
+
+            <div class="col-xs-12 col-md-4 categorias-e-tags">
+                <section id="categorias">
+                    <div class="row">
+                        <div class="col-xs-12 div-blog-categorias">
+                            <h2 class="blog-anuncio-h2">Categorias</h2>
+                            <ul>
+                                @foreach (var categoria in ViewBag.Categorias)
+                                {
+                                    <li>
+                                        <a href="/blog-por-categoria/@categoria" title="@categoria">
+                                            <h3>
+                                                @categoria
+                                            </h3>
+                                        </a>
+                                    </li>
+                                }
+
+                                <li>
+                                    <a href="/blog-por-categoria/todas" title="Categorias">
+                                        <h3>
+                                            Todas categorias
+                                        </h3>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tags" class="margin-top-30">
+                    <div class="row">
+                        <div class="col-xs-12 div-blog-tags">
+                            <h2 class="blog-anuncio-h2">Tags</h2>
+                            <ul>
+                                @foreach (var tag in Model.Tag.Split(','))
+                                {
+                                    <li>
+                                        <h2>
+                                            <a href="/blog-por-tag/@tag" title="@tag" class="btn btn-saiba-mais-orange">
+                                                @tag
+                                            </a>
+                                        </h2>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Blog")
+
+    <section id="redes-sociais" class="redes-sociais-compartilhar background-branco">
+        <section id="share" class="container">
+            <div class="col-xs-12 anuncio-compartilhe">
+                <header class="col-xs-12 compartilhe-titulo">
+                    <i class="fa fa-angle-down"></i>
+                    <span>COMPARTILHE ESTA MATÉRIA COM SEUS AMIGOS</span>
+                </header>
+
+                <div class="col-xs-12 icones">
+                    <i class="spr-detalhes-anuncio ico-facebook"></i>
+
+                    <a href="#" onclick="twitter = window.open('https://twitter.com/share', 'Twitter', width = 600, height = 150); return false;">
+                        <i class="spr-detalhes-anuncio ico-twitter"></i>
+                    </a>
+                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+                    <a href="#" onclick="googlePlus = window.open('https://plus.google.com/share?url=@Request.Url', 'GooglePlus', width = 600, height = 150); return false;">
+                        <i class="spr-detalhes-anuncio ico-gplus"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="comentario" class="container margin-top-46">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            this.page.url = "@Request.Url";
+                            this.page.identifier = "@Model.Id";
+                        };
+
+                        (function () {
+                            var d = document, s = d.createElement('script');
+                            s.src = '//ecoaprender.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    <script id="dsq-count-scr" src="//carspremium.disqus.com/count.js" async></script>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="navegacao-footer" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a rel="nofollow" href="@Url.Action("index", "Site")" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="#" title="@Model.Titulo" itemprop="name">@Model.Titulo</a></li>
+            </ul>
+        </nav>
+    </section>
+</section>
+
+<input type="hidden" id="facebookName" value="@Model.Titulo" />
+<input type="hidden" id="facebookLink" value="@Request.Url" />
+<input type="hidden" id="facebookPicture" value="http://www.ecoaprender.com.br/img/blog/@Model.FotoCapa" />
+<input type="hidden" id="facebookCaption" value="@Model.MetaTitle" />
+<input type="hidden" id="facebookDescription" value="@Model.Titulo" />
+<input type="hidden" id="facebookMessage" value="@Model.MetaDescription" />
+
+<div id="fb-root"></div>
+
+@section scripts{
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '998622546846492',
+                xfbml: true,
+                version: 'v2.5',
+                status: true,
+                cookie: true
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    @Scripts.Render("~/bundles/atividade")
+    @Scripts.Render("~/bundles/blog")
+}

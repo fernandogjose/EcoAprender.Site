@@ -1,0 +1,41 @@
+﻿@model List<Domain.Entities.Video>
+
+@{
+    ViewBag.Title = "Escola Infantil e Berçário Eco Aprender - Vídeos";
+    ViewBag.MetaDescription = "Estes videos mostram os alunos do infantil fazendo as atividades do dia a dia na escola";
+}
+
+<section id="main">
+
+    <header>
+        <img src="~/img/header-videos.jpg" class="img-responsive img-principal" alt="Escola de Educação Infantil e Berçário Eco Aprender" itemprop="image" />
+    </header>
+
+    <section id="navegacao-header" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a rel="nofollow" href="@Url.Action("index", "Site")" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/videos" title="Videos" itemprop="name">Videos</a><i class="fa fa-angle-right"></i></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div class="container pagina-interna">
+        <div class="row">
+            @foreach (var video in Model)
+            {
+                <article class="col-xs-12 col-md-4 todos-blogs" itemscope itemtype="http://schema.org/VideoObject">
+                    <meta itemprop="embedURL" content="http://www.youtube.com/watch?v=@video.Embed" />
+                    <meta itemprop="uploadDate" content="@video.DataInclusao" />
+                    <meta itemprop="thumbnailUrl" content="http://www.ecoaprender.com.br/img/header-videos.jpg" />
+
+                    <header>
+                        <iframe src="https://www.youtube.com/embed/@video.Embed" frameborder="0" allowfullscreen class="player"></iframe>
+                    </header>
+                    <h2 itemprop="name">@video.Titulo</h2>
+                    <div itemprop="description" class="text-justify">@Html.Raw(video.Descricao)</div>
+                </article>
+            }
+        </div>
+    </div>
+</section>

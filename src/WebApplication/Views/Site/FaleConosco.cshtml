@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Fale com a Escola Infantil e Berçário Eco Aprender";
+    ViewBag.MetaDescription = "Tire suas dúvidas, marque uma visita ou deixe sua mensagem com a Escola de Educação Infantil e Berçário Eco Aprender no Tatuapé, Anália Franco";
+}
+
+<section id="main">
+    <header>
+        <img src="/img/fale-conosco/fale-conosco-header.jpg" class="img-responsive img-principal" alt="Escola de Educação Infantil e Berçário Eco Aprender" />
+    </header>
+
+    <section id="navegacao-header" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/Fale-Conosco" title="Fale Conosco">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </section>
+   
+    <section id="form-fale-conosco" class="container pagina-interna">
+        <div class="row">
+            <section id="form" class="col-xs-12 col-md-6">
+                <header>
+                    <h2>Entre em <strong>contato</strong> com a <strong>Escola</strong> Eco Aprender</h2>
+                </header>
+
+                <form class="form-horizontal" id="form" name="form" method="post" action="@Url.Action("Fale-Conosco/Enviar", "")">
+                    <div class="form-group">
+                        <label for="Nome" class="col-xs-2 control-label">Nome</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="nome" name="nome" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Assunto" class="col-xs-2 control-label">Assunto</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="assunto" name="assunto" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Telefone" class="col-xs-2 control-label">Telefone</label>
+                        <div class="col-xs-10">
+                            <input type="tel" class="form-control" id="telefone" name="telefone" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-xs-2 control-label">e-mail</label>
+                        <div class="col-xs-10">
+                            <input type="email" class="form-control" id="email" name="email" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Mensagem" class="col-xs-2 control-label">Mensagem</label>
+                        <div class="col-xs-10">
+                            <textarea class="form-control" id="mensagem" name="mensagem"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-10">
+                            <button type="submit" class="btn btn-primary btn-salvar" id="enviar">Enviar</button>
+                        </div>
+                    </div>
+
+                    <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide"></p>
+                </form>
+            </section>
+
+            <section id="mapa" class="col-xs-12 col-md-6">
+                <header>
+                    <h2>Encontre a <strong>Eco Aprender</strong> no <strong>mapa</strong></h2>
+                </header>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.599943346225!2d-46.5640526851359!3d-23.546887084690088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e8e818bd74b%3A0xedb7a8cd089e8304!2sR.+Euclides+Pacheco%2C+1347+-+Vila+Gomes+Cardim%2C+S%C3%A3o+Paulo+-+SP%2C+03321-001!5e0!3m2!1spt-BR!2sbr!4v1484427478648" width="550" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </section>
+        </div>
+    </section>
+
+    <section id="navegacao-footer" class="div-veja-mais MarginTop30">
+        <nav class="container">
+            <ul>
+                <li><a href="/" title="Escola de Educação Infantil e Berçário Eco Aprender">Escola de Educação Infantil e Berçário Eco Aprender</a><i class="fa fa-angle-right"></i></li>
+                <li><a href="/Fale-Conosco" title="Fale Conosco">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </section>
+</section>
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    @Scripts.Render("~/bundles/fale-conosco")
+}
