@@ -11,5 +11,7 @@
         public string Assunto { get; set; }
 
         public string Mensagem { get; set; }
+
+        public string Alerta { get; set; }
     }
 }

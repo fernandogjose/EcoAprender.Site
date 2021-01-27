@@ -59,7 +59,7 @@ namespace WebApplication.Controllers
         [Route("fale-conosco")]
         public ActionResult FaleConosco()
         {
-            return View();
+            return View(new FaleConosco());
         }
 
         [Route("instagram")]
@@ -74,18 +74,20 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        [Route("fale-conosco/enviar")]
         [HttpPost]
-        public JsonResult FaleConoscoEnviar(FaleConosco faleConosco)
+        public ActionResult FaleConoscoEnviar(FaleConosco faleConosco)
         {
             try
             {
                 _faleConoscoServiceService.Enviar(faleConosco);
-                return Json("sucesso");
+
+                faleConosco.Alerta = "sucesso";
+                return View("FaleConosco", faleConosco);
             }
             catch (CommonException commonException)
             {
-                return Json(commonException.Error);
+                faleConosco.Alerta = "erro";
+                return View("FaleConosco", faleConosco);
             }
         }
 

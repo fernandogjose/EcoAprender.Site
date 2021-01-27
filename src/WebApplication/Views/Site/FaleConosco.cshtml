@@ -3,6 +3,28 @@
     ViewBag.MetaDescription = "Tire suas dúvidas, marque uma visita ou deixe sua mensagem com a Escola de Educação Infantil e Berçário Eco Aprender no Tatuapé, Anália Franco";
 }
 
+@model Domain.Entities.Email.FaleConosco
+
+<script type="text/javascript">
+
+@if(!string.IsNullOrEmpty(Model.Alerta))
+{
+    if(Model.Alerta == "sucesso")
+    {
+        <text>
+            alert("e-mail enviado com sucesso");
+        </text>
+    } else
+    {
+        <text>
+            alert("erro ao enviar e-mail");
+        </text>
+    }
+}
+
+</script>
+
+
 <section id="main">
     <header>
         <img src="/img/fale-conosco/fale-conosco-header.jpg" class="img-responsive img-principal" alt="Escola de Educação Infantil e Berçário Eco Aprender" />
@@ -16,7 +38,7 @@
             </ul>
         </nav>
     </section>
-   
+
     <section id="form-fale-conosco" class="container pagina-interna">
         <div class="row">
             <section id="form" class="col-xs-12 col-md-6">
@@ -24,7 +46,8 @@
                     <h2>Entre em <strong>contato</strong> com a <strong>Escola</strong> Eco Aprender</h2>
                 </header>
 
-                <form class="form-horizontal" id="form" name="form" method="post" action="@Url.Action("Fale-Conosco/Enviar", "")">
+                @using (Html.BeginForm("FaleConoscoEnviar", "Site", FormMethod.Post))
+                {
                     <div class="form-group">
                         <label for="Nome" class="col-xs-2 control-label">Nome</label>
                         <div class="col-xs-10">
@@ -67,7 +90,7 @@
                     </div>
 
                     <p class="col-xs-offset-2 col-xs-10 alerta alerta-login hide"></p>
-                </form>
+                }
             </section>
 
             <section id="mapa" class="col-xs-12 col-md-6">
