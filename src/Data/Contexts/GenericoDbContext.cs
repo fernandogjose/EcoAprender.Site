@@ -2,6 +2,7 @@
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Data.EntityMapping;
 using Domain.Entities;
+using Domain.Entities.Email;
 
 namespace Data.Contexts
 {
@@ -69,6 +70,8 @@ namespace Data.Contexts
 
         public DbSet<Leite> Leite { get; set; }
 
+        public DbSet<FaleConosco> FaleConosco { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
@@ -107,6 +110,7 @@ namespace Data.Contexts
             modelBuilder.Configurations.Add(new LeiteMap());
             modelBuilder.Configurations.Add(new SonoMap());
             modelBuilder.Configurations.Add(new EvacuacaoMap());
+            modelBuilder.Configurations.Add(new FaleConoscoMap());
         }
     }
 }

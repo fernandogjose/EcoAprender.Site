@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Contexts\GenericoDbContext.cs" />
     <Compile Include="EntityMapping\AlunoMap.cs" />
+    <Compile Include="EntityMapping\FaleConoscoMap.cs" />
     <Compile Include="EntityMapping\LeiteMap.cs" />
     <Compile Include="EntityMapping\EvacuacaoMap.cs" />
     <Compile Include="EntityMapping\SonoMap.cs" />

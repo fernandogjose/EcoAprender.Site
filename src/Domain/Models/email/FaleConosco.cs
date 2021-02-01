@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities.Email
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities.Email
 {
-    public class FaleConosco
+    public class FaleConosco : Base
     {
         public string Nome { get; set; }
 
@@ -12,6 +14,7 @@
 
         public string Mensagem { get; set; }
 
+        [NotMapped]
         public string Alerta { get; set; }
     }
 }
