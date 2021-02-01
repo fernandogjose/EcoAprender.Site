@@ -13,7 +13,7 @@ namespace Email.Services
             var cliente = new SmtpClient("smtp.gmail.com", 587)
             {
                 EnableSsl = true,
-                Credentials = new NetworkCredential("carspremiumcontato@gmail.com", "Contato@2015"),
+                Credentials = new NetworkCredential("priscilaecoaprender@gmail.com", "fpg@050612"),
             };
 
             //--- Remetente

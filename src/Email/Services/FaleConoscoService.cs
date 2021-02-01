@@ -29,7 +29,7 @@ namespace Email.Services
             {
                 Body = body,
                 DestinoNome = "Priscila Antunes",
-                DestinoEmail = "fernandogjose@gmail.com",
+                DestinoEmail = "priscilaecoaprender@gmail.com",
                 Assunto = entity.Assunto,
                 RemetenteNome = entity.Nome,
                 RemetenteEmail = entity.Email
